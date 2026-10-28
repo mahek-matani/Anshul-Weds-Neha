@@ -1,173 +1,1420 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fff3e9">
-<meta name="description" content="Celebrate the wedding of Anshul and Neha — 30th and 31st January 2027, Hotel Residency Park, Dhule.">
-<title>Anshul & Neha | Wedding Celebration</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--cream:#fff5eb;--blush:#f6d4cb;--rose:#b96d69;--deep:#743f3d;--gold:#bd8a42;--ink:#503a35;--serif:"Cormorant Garamond",Georgia,serif;--script:"Great Vibes",cursive;--sans:Montserrat,Arial,sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-snap-type:y proximity}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
-section{min-height:100svh;position:relative;display:flex;align-items:center;justify-content:center;scroll-snap-align:start;isolation:isolate;padding:5rem 1.25rem}
-section:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(135deg,#fff9f2,#f9e6d8 55%,#fff3e7)}
-.bg-image:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(255,246,235,.16),rgba(255,241,225,.18) 42%,rgba(255,245,235,.62))}
-.bg-image{background-position:center;background-size:cover;background-repeat:no-repeat}
-.bg-image .content{background:rgba(255,248,239,.77);border:1px solid rgba(183,132,68,.45);box-shadow:0 20px 70px #754f351a;backdrop-filter:blur(3px)}
-.content{width:min(760px,100%);text-align:center;padding:clamp(1.5rem,5vw,3.5rem);position:relative;border-radius:3px}
-.eyebrow{font-size:.68rem;letter-spacing:.27em;text-transform:uppercase;color:var(--rose);font-weight:600}
-h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04}
-h1{font-size:clamp(4rem,12vw,8.4rem);margin:.35rem 0;color:var(--deep);letter-spacing:-.035em}
-h2{font-size:clamp(2.8rem,7vw,5.2rem);color:var(--deep);margin:.5rem 0 1.2rem}
-h3{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:.4rem}
-.script{font-family:var(--script);font-size:clamp(2.3rem,7vw,4.3rem);color:var(--rose);line-height:1.15}
-.amp{font-family:var(--script);font-size:clamp(2.5rem,7vw,4.8rem);color:var(--gold);padding:0 .3em}
-.copy{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.65rem);line-height:1.55}
-.rule{display:flex;align-items:center;gap:1rem;justify-content:center;margin:1.25rem auto;color:var(--gold);max-width:280px}
-.rule:before,.rule:after{content:"";height:1px;background:var(--gold);flex:1}.rule span{font-size:1.1rem}
-.names{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:.15rem}
-.top-nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;justify-content:center;gap:clamp(.5rem,3vw,2rem);padding:.85rem 1rem;background:linear-gradient(#fff6ebdc,transparent);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
-.top-nav a{color:var(--deep);text-decoration:none;padding:.45rem .2rem;border-bottom:1px solid transparent}.top-nav a:hover,.top-nav a:focus{border-color:var(--gold)}
-.scroll-note{position:absolute;bottom:1.3rem;left:50%;transform:translateX(-50%);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--deep);display:flex;align-items:center;gap:.6rem;white-space:nowrap}
-.scroll-note:after{content:"↓";font-size:1rem;animation:bob 1.5s infinite}
-#hero{background-image:url('ganeshji.png');background-position:center}
-#hero .content{margin-left:auto;margin-right:2%;max-width:650px;background:rgba(255,248,239,.64);border:0;box-shadow:none;backdrop-filter:blur(1px)}
-#hero .eyebrow{color:#875c30}
-#family .content{max-width:850px}
-.family-grid{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(.8rem,4vw,2.2rem);margin-top:2rem}
-.family-card{padding:1.3rem .6rem}.family-card p{font-family:var(--serif);font-size:clamp(1.05rem,2.3vw,1.45rem);line-height:1.55;margin:0}
-.family-card .script{font-size:clamp(2.2rem,5vw,3.7rem)}
-#logo .content{border:1px solid #cda66d;outline:1px solid #cda66d;outline-offset:8px;max-width:700px}
-.monogram{width:clamp(130px,28vw,205px);height:clamp(130px,28vw,205px);border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 1.5rem;position:relative;color:var(--deep);font-family:var(--serif);font-size:clamp(3.7rem,10vw,6.2rem);letter-spacing:-.15em;padding-right:.15em}
-.monogram:before,.monogram:after{content:"";position:absolute;inset:8px;border:1px solid #d9b981;border-radius:50%}.monogram:after{inset:-8px;border:1px dashed #cba363}
-#sangeet{background-image:url('sangeet.png')}
-#wedding{background-image:url('wedding.png')}
-#reception{background-image:url('reception.png')}
-.event-card{max-width:640px;padding:clamp(1.7rem,5vw,3.4rem)}
-.event-card .event-name{font-size:clamp(3.2rem,8vw,5.8rem);font-family:var(--script);color:var(--deep);margin:.5rem 0}
-.event-details{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.65rem);line-height:1.6}
-.event-details strong{font-weight:600;color:var(--deep)}
-.location{font-size:.75rem;letter-spacing:.08em;line-height:1.7;text-transform:uppercase;margin-top:1.2rem}
-#countdown .content{max-width:850px}
-.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.5rem,2vw,1.2rem);margin:2.5rem 0}
-.count-unit{border:1px solid #d7b27b;background:#fffaf3ad;padding:1.25rem .5rem}
-.count-num{font-family:var(--serif);font-size:clamp(2.2rem,7vw,4.5rem);color:var(--deep);line-height:1}
-.count-label{font-size:.58rem;letter-spacing:.17em;text-transform:uppercase;color:var(--rose);margin-top:.65rem}
-.footer-note{font-family:var(--script);font-size:2rem;color:var(--rose);margin:1.3rem 0 0}
-.floating-petal{position:absolute;top:-15px;color:#d99b91;opacity:.6;animation:fall 12s linear infinite;pointer-events:none;font-size:1.3rem}
-.floating-petal:nth-child(2){left:15%;animation-delay:3s}.floating-petal:nth-child(3){left:75%;animation-delay:6s}.floating-petal:nth-child(4){left:88%;animation-delay:1s}
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .9s ease,transform .9s ease}.reveal.visible{opacity:1;transform:translateY(0)}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-@keyframes fall{0%{transform:translateY(-5vh) rotate(0);opacity:0}10%{opacity:.65}90%{opacity:.5}100%{transform:translateY(110vh) rotate(240deg);opacity:0}}
-@media(max-width:650px){.top-nav{gap:.65rem;padding:.65rem .4rem;font-size:.48rem;letter-spacing:.07em}.top-nav a{padding:.35rem 0}section{padding:4.4rem 1rem;min-height:100svh}.content{padding:1.5rem 1rem}#hero{background-position:31% center}#hero .content{margin:0;background:rgba(255,248,239,.73);padding:1.7rem .7rem}.family-grid{grid-template-columns:1fr;gap:.2rem}.family-card{padding:.65rem .2rem}.family-grid .amp{font-size:2.5rem;line-height:.7}.count-grid{gap:.45rem}.count-unit{padding:1rem .15rem}.count-label{font-size:.48rem;letter-spacing:.1em}.event-card{background:rgba(255,248,239,.82)!important}.scroll-note{bottom:.8rem}.location{font-size:.66rem}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fff3e9" />
+
+  <meta name="description"
+        content="Join Anshul and Neha as they celebrate their wedding on 30 and 31 January 2027." />
+
+  <title>Anshul &amp; Neha | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+  <style>
+    :root {
+      --cream: #fff8ef;
+      --ivory: #fffaf3;
+      --pink: #e7b4ae;
+      --rose: #bd7775;
+      --deep-rose: #864d4c;
+      --gold: #bd914b;
+      --dark: #563c35;
+      --green: #697b5a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 20px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: "Montserrat", sans-serif;
+      overflow-x: hidden;
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ==========================
+       SEALED ENVELOPE INTRO
+    ========================== */
+
+    #invitation {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 35%, #fffdf8 0%, #fff0e5 52%, #eac8b7 100%);
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #invitation.dismissed {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-flower {
+      position: absolute;
+      font-size: clamp(90px, 19vw, 190px);
+      color: #d99c8f;
+      opacity: .13;
+      pointer-events: none;
+    }
+
+    .intro-flower.one {
+      top: -35px;
+      left: -25px;
+    }
+
+    .intro-flower.two {
+      bottom: -55px;
+      right: -20px;
+    }
+
+    .intro-content {
+      width: min(430px, 100%);
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: introFade 1.2s ease both;
+    }
+
+    .intro-kicker {
+      color: var(--deep-rose);
+      font-size: 10px;
+      letter-spacing: .25em;
+      line-height: 2;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .envelope-button {
+      border: none;
+      background: transparent;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+      padding: 0;
+      outline-offset: 10px;
+    }
+
+    .envelope {
+      height: clamp(190px, 48vw, 245px);
+      width: 100%;
+      max-width: 370px;
+      margin: auto;
+      position: relative;
+      perspective: 1000px;
+      filter: drop-shadow(0 18px 22px #754c3428);
+    }
+
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      border: 1px solid #c39a5e;
+      border-radius: 4px;
+      background: #eed5b9;
+    }
+
+    .envelope-letter {
+      position: absolute;
+      z-index: 2;
+      top: 12%;
+      left: 7%;
+      width: 86%;
+      height: 83%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      background: #fffaf1;
+      border: 1px solid #d7b97e;
+      transition: transform 1s .15s ease;
+    }
+
+    .letter-monogram {
+      font-family: "Great Vibes", cursive;
+      font-size: 31px;
+      color: var(--gold);
+    }
+
+    .letter-names {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(28px, 7vw, 37px);
+      color: var(--deep-rose);
+    }
+
+    .letter-date {
+      font-size: 9px;
+      letter-spacing: .17em;
+      color: #866b56;
+    }
+
+    .envelope-front {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: linear-gradient(140deg, #f4e2cc, #e8c9a9);
+      clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+      border-bottom: 1px solid #c39a5e;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65%;
+      background: linear-gradient(150deg, #fff0dc, #e8c9a9);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top center;
+      transition: transform .9s ease;
+      backface-visibility: visible;
+    }
+
+    .wax-seal {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      top: 55%;
+      transform: translate(-50%, -50%);
+      width: 59px;
+      height: 59px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #f5d99e;
+      border-radius: 50%;
+      color: #fff5dc;
+      background: radial-gradient(circle at 30% 25%, #d9b568, #98652e);
+      box-shadow: 0 3px 9px #8151243a;
+      font-family: "Great Vibes", cursive;
+      font-size: 27px;
+      transition: opacity .3s;
+    }
+
+    .envelope.opening .envelope-flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope.opening .envelope-letter {
+      transform: translateY(-75px);
+    }
+
+    .envelope.opening .wax-seal {
+      opacity: 0;
+    }
+
+    .open-invitation {
+      margin-top: 37px;
+      padding: 15px 26px;
+      color: white;
+      background: var(--deep-rose);
+      border: 1px solid var(--gold);
+      border-radius: 40px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 8px 24px #864d4c20;
+      transition: transform .25s, background .25s;
+    }
+
+    .open-invitation:hover {
+      transform: translateY(-3px);
+      background: #6e3e3e;
+    }
+
+    .intro-script {
+      margin-top: 18px;
+      font-family: "Great Vibes", cursive;
+      color: var(--deep-rose);
+      font-size: 26px;
+    }
+
+    .intro-hint {
+      margin-top: 12px;
+      font-size: 9px;
+      letter-spacing: .08em;
+      color: #947a6a;
+    }
+
+    /* ==========================
+       MUSIC CONTROL
+    ========================== */
+
+    .music-toggle {
+      position: fixed;
+      z-index: 100;
+      bottom: 20px;
+      right: 18px;
+      display: none;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 15px;
+      border: 1px solid #cda76e;
+      border-radius: 40px;
+      background: #fff9f0ed;
+      color: var(--deep-rose);
+      cursor: pointer;
+      box-shadow: 0 5px 20px #5c3d2c18;
+      font-size: 10px;
+    }
+
+    .music-toggle.visible {
+      display: flex;
+    }
+
+    .music-bars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 14px;
+    }
+
+    .music-bars span {
+      width: 2px;
+      height: 5px;
+      background: var(--rose);
+      border-radius: 3px;
+    }
+
+    .music-toggle.playing .music-bars span {
+      animation: musicBars .6s ease-in-out infinite alternate;
+    }
+
+    .music-bars span:nth-child(2) { animation-delay: .2s; }
+    .music-bars span:nth-child(3) { animation-delay: .4s; }
+    .music-bars span:nth-child(4) { animation-delay: .1s; }
+
+    /* ==========================
+       COMMON PAGE DESIGN
+    ========================== */
+
+    .page {
+      min-height: 100svh;
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 85px 22px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(180deg, #fff7ed1c, #fff1e6aa);
+    }
+
+    .page::after {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      z-index: -1;
+      border: 1px solid #c8a66a73;
+      pointer-events: none;
+    }
+
+    .page-content {
+      width: min(800px, 100%);
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: .3em;
+      line-height: 2;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+    }
+
+    .script {
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      color: var(--deep-rose);
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+    }
+
+    .ornament {
+      color: var(--gold);
+      margin: 22px auto;
+      letter-spacing: .3em;
+      font-size: 17px;
+    }
+
+    .gold-line {
+      width: 85px;
+      height: 1px;
+      margin: 20px auto;
+      background: var(--gold);
+    }
+
+    .section-note {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 21px;
+      line-height: 1.7;
+      color: #795b4e;
+    }
+
+    /* ==========================
+       PAGE 1: GANESHA WELCOME
+    ========================== */
+
+    .hero {
+      min-height: 100svh;
+      background: #fff1df url("./ganeshji.png") center / cover no-repeat;
+    }
+
+    .hero::before {
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #fff4e5aa 43%,
+        #fff4e5c9 100%
+      );
+    }
+
+    .hero .page-content {
+      margin-left: auto;
+      margin-right: 3%;
+      max-width: 55%;
+    }
+
+    .ganesh-mantra {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(12px, 2vw, 16px);
+      color: #a06e36;
+      letter-spacing: .12em;
+      margin-bottom: 34px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 9vw, 94px);
+      line-height: .98;
+      color: #774744;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin: 9px 0;
+      font-family: "Great Vibes", cursive;
+      font-size: .65em;
+      color: #b78a45;
+    }
+
+    .hero .invitation-line {
+      max-width: 420px;
+      margin: 28px auto 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(18px, 2.5vw, 25px);
+      line-height: 1.65;
+      color: #785a4e;
+    }
+
+    .scroll-cue {
+      margin-top: 40px;
+      font-size: 9px;
+      letter-spacing: .23em;
+      text-transform: uppercase;
+      color: var(--deep-rose);
+    }
+
+    .scroll-cue span {
+      display: block;
+      margin-top: 10px;
+      font-size: 20px;
+      animation: bob 1.5s ease-in-out infinite;
+    }
+
+    /* ==========================
+       PAGE 2: FAMILY INTRODUCTION
+    ========================== */
+
+    .family {
+      background:
+        radial-gradient(ellipse at center, #fffaf2 0%, #fbe6d7 100%);
+    }
+
+    .family .page-content {
+      max-width: 760px;
+    }
+
+    .family-heading {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(43px, 8vw, 66px);
+      color: var(--deep-rose);
+      margin-bottom: 15px;
+    }
+
+    .family-names {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 25px;
+      margin-top: 35px;
+    }
+
+    .family-person h2 {
+      font-size: clamp(31px, 5vw, 48px);
+      color: #87524d;
+    }
+
+    .family-person p {
+      margin-top: 17px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(17px, 2.2vw, 21px);
+      line-height: 1.7;
+      color: #73574a;
+    }
+
+    .family-person .role {
+      font-family: "Montserrat", sans-serif;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #ad8856;
+    }
+
+    .family-and {
+      font-family: "Great Vibes", cursive;
+      font-size: 49px;
+      color: var(--gold);
+    }
+
+    .family-blessing {
+      margin-top: 45px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      font-style: italic;
+      color: #956d5c;
+    }
+
+    /* ==========================
+       PAGE 3: AN MONOGRAM
+    ========================== */
+
+    .celebrations {
+      background:
+        linear-gradient(#fff3e9a3, #fff4e7d9),
+        url("./ganeshji.png") center / cover no-repeat;
+    }
+
+    .monogram {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 28px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #fff8edc7;
+      box-shadow: inset 0 0 0 7px #fff7e6, inset 0 0 0 8px #c5a15d65;
+    }
+
+    .monogram::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1px solid #c5a15d83;
+      border-radius: 50%;
+    }
+
+    .monogram span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 68px;
+      color: #996d38;
+    }
+
+    .monogram span + span {
+      margin-left: -14px;
+      margin-top: 27px;
+      font-style: italic;
+      font-size: 58px;
+      color: #b97b78;
+    }
+
+    .celebrations h2 {
+      font-size: clamp(42px, 8vw, 73px);
+      color: #795047;
+    }
+
+    .celebrations .script {
+      font-size: 30px;
+      margin-top: 18px;
+    }
+
+    /* ==========================
+       EVENT PAGES
+    ========================== */
+
+    .event {
+      background-color: #fff1e2;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .sangeet {
+      background-image: url("./sangeet.png");
+    }
+
+    .wedding {
+      background-image: url("./wedding.png");
+    }
+
+    .reception {
+      background-image: url("./reception.png");
+    }
+
+    .event::before {
+      background:
+        linear-gradient(
+          180deg,
+          #fff4e8b0 0%,
+          #fff8efce 40%,
+          #fff3e8c9 100%
+        );
+    }
+
+    .event-card {
+      max-width: 600px;
+      padding: clamp(27px, 6vw, 55px);
+      margin: auto;
+      border: 1px solid #c9a461;
+      outline: 1px solid #c9a46173;
+      outline-offset: 7px;
+      background: #fff8efd9;
+      box-shadow: 0 15px 50px #6a473015;
+      backdrop-filter: blur(4px);
+    }
+
+    .event-icon {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .event-card h2 {
+      font-size: clamp(43px, 8vw, 76px);
+      line-height: 1.05;
+      color: #834f4c;
+      margin: 15px 0 18px;
+    }
+
+    .event-date {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(20px, 3.4vw, 28px);
+      line-height: 1.6;
+      color: #7b5949;
+    }
+
+    .event-time {
+      margin-top: 8px;
+      font-size: 12px;
+      letter-spacing: .15em;
+      color: #a17a4b;
+      text-transform: uppercase;
+    }
+
+    .event-venue {
+      margin-top: 24px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #74564b;
+    }
+
+    .event-venue strong {
+      display: block;
+      font-weight: 600;
+    }
+
+    .event-footer {
+      margin-top: 29px;
+      font-family: "Great Vibes", cursive;
+      font-size: 28px;
+      color: var(--deep-rose);
+    }
+
+    /* ==========================
+       PAGE 7: COUNTDOWN
+    ========================== */
+
+    .countdown {
+      background:
+        linear-gradient(#fff6eddb, #fff1e4ed),
+        url("./ganeshji.png") center / cover no-repeat;
+    }
+
+    .countdown h2 {
+      font-size: clamp(45px, 8vw, 78px);
+      line-height: 1.1;
+      color: #87504d;
+      margin-top: 15px;
+    }
+
+    .countdown-intro {
+      margin-top: 17px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      color: #916c58;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: clamp(8px, 3vw, 24px);
+      width: min(620px, 100%);
+      margin: 40px auto 0;
+    }
+
+    .timer-box {
+      padding: 18px 5px;
+      background: #fffaf2d9;
+      border: 1px solid #c5a15c;
+      box-shadow: inset 0 0 0 4px #fff8ed;
+    }
+
+    .timer-number {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(32px, 7vw, 54px);
+      color: #8b5550;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-label {
+      display: block;
+      margin-top: 5px;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #997b62;
+    }
+
+    .countdown-message {
+      margin-top: 30px;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(27px, 5vw, 39px);
+      color: var(--deep-rose);
+    }
+
+    .footer {
+      padding: 28px 15px;
+      text-align: center;
+      background: #f4dfd0;
+      color: #805b50;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+    }
+
+    /* ==========================
+       ANIMATIONS
+    ========================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes introFade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+
+    @keyframes musicBars {
+      from { height: 3px; }
+      to { height: 13px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* ==========================
+       MOBILE RESPONSIVENESS
+    ========================== */
+
+    @media (max-width: 700px) {
+      .page {
+        min-height: 100svh;
+        padding: 65px 24px;
+      }
+
+      .page::after {
+        inset: 9px;
+      }
+
+      .hero {
+        background-position: 29% center;
+      }
+
+      .hero::before {
+        background: linear-gradient(
+          90deg,
+          #fff5e5b0 0%,
+          #fff5e5ce 50%,
+          #fff5e5ec 100%
+        );
+      }
+
+      .hero .page-content {
+        max-width: 100%;
+        margin: auto;
+        padding: 25px 5px;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px, 13vw, 75px);
+      }
+
+      .ganesh-mantra {
+        font-size: 11px;
+        letter-spacing: .08em;
+      }
+
+      .family-names {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .family-and {
+        font-size: 38px;
+        line-height: .8;
+      }
+
+      .family-person p {
+        margin-top: 9px;
+      }
+
+      .family-blessing {
+        margin-top: 28px;
+        font-size: 21px;
+      }
+
+      .monogram {
+        width: 135px;
+        height: 135px;
+      }
+
+      .monogram span {
+        font-size: 57px;
+      }
+
+      .monogram span + span {
+        font-size: 49px;
+      }
+
+      .event {
+        background-position: center;
+      }
+
+      .event::before {
+        background: #fff4e8b9;
+      }
+
+      .event-card {
+        padding: 30px 20px;
+      }
+
+      .event-venue {
+        font-size: 20px;
+      }
+
+      .timer {
+        gap: 7px;
+        margin-top: 30px;
+      }
+
+      .timer-box {
+        padding: 14px 2px;
+      }
+
+      .timer-number {
+        font-size: clamp(28px, 8vw, 42px);
+      }
+
+      .timer-label {
+        font-size: 8px;
+        letter-spacing: .04em;
+      }
+
+      .music-toggle {
+        right: 12px;
+        bottom: 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .timer {
+        gap: 5px;
+      }
+
+      .timer-label {
+        font-size: 7px;
+      }
+
+      .open-invitation {
+        padding: 14px 20px;
+        letter-spacing: .1em;
+      }
+    }
+  </style>
 </head>
-<body>
-<nav class="top-nav" aria-label="Wedding sections">
-<a href="#hero">Welcome</a><a href="#family">Our Families</a><a href="#logo">Celebrations</a><a href="#sangeet">Sangeet</a><a href="#wedding">Wedding</a><a href="#reception">Reception</a><a href="#countdown">Countdown</a>
-</nav>
-<section id="hero" class="bg-image">
-<div class="content reveal">
-<div class="eyebrow">With the blessings of Lord Ganesha</div>
-<div class="rule"><span>✦</span></div>
-<p class="copy" style="letter-spacing:.13em;font-size:1rem;margin-bottom:1.3rem">|| SHREE GANESHAYA NAMAHA ||</p>
-<p class="script" style="margin-bottom:0">Together with our families</p>
-<div class="names"><h1>Anshul</h1><span class="amp">&amp;</span><h1>Neha</h1></div>
-<div class="rule"><span>❧</span></div>
-<p class="copy">Two hearts, two families, and one beautiful beginning.<br>We would be delighted to have you with us as we celebrate a lifetime of love.</p>
-</div>
-<div class="scroll-note">Scroll to celebrate with us</div>
-</section>
-<section id="family">
-<div class="content reveal">
-<div class="eyebrow">Two families · One forever</div><h2>With Love &amp; Blessings</h2>
-<div class="rule"><span>❦</span></div>
-<div class="family-grid">
-<div class="family-card"><div class="script">Anshul</div><p>Son of<br><strong>Mrs. Sangeeta Matani</strong><br>&amp; <strong>Dr. Rajesh Matani</strong></p></div>
-<div class="amp">&amp;</div>
-<div class="family-card"><div class="script">Neha</div><p>Daughter of<br><strong>Mrs. Veena Balwani</strong><br>&amp; <strong>Mr. Balwani</strong></p></div>
-</div>
-<p class="copy" style="margin:2rem 0 0">With the blessings of our elders and the love of our families, we invite you to share in our joy.</p>
-</div><div class="scroll-note">The celebrations await</div>
-</section>
-<section id="logo">
-<div class="content reveal">
-<div class="monogram" aria-label="Anshul and Neha monogram">A<span style="font-family:var(--script);font-size:.75em;margin-left:-.06em">N</span></div>
-<div class="eyebrow">A celebration of love</div><h2>Wedding Celebrations</h2>
-<p class="copy">A little sparkle, a lot of love, and memories to last forever.</p>
-<div class="rule"><span>✧</span></div>
-<p class="eyebrow">30 &amp; 31 January 2027 · Dhule</p>
-</div><div class="scroll-note">Let the festivities begin</div>
-</section>
-<section id="sangeet" class="bg-image">
-<div class="content event-card reveal">
-<div class="eyebrow">An evening of music &amp; magic</div><div class="event-name">Sangeet Soirée</div>
-<div class="rule"><span>♫</span></div>
-<div class="event-details"><strong>Saturday, 30th January 2027</strong><br>8:00 PM onwards</div>
-<div class="location">Hotel Residency Park<br>Dhule, Maharashtra</div>
-<p class="copy" style="margin:1.5rem 0 0">Come ready to dance, sing, and celebrate the rhythm of love.</p>
-</div><div class="scroll-note">Next · Wedding vows</div>
-</section>
-<section id="wedding" class="bg-image">
-<div class="content event-card reveal">
-<div class="eyebrow">Two souls · One sacred promise</div><div class="event-name">Wedding Vows</div>
-<div class="rule"><span>❦</span></div>
-<div class="event-details"><strong>Sunday, 31st January 2027</strong><br>1:00 PM onwards</div>
-<div class="location">Hotel Residency Park<br>Dhule, Maharashtra</div>
-<p class="copy" style="margin:1.5rem 0 0">Join us as we take our seven steps toward a lifetime together.</p>
-</div><div class="scroll-note">Next · Celebrate together</div>
-</section>
-<section id="reception" class="bg-image">
-<div class="content event-card reveal">
-<div class="eyebrow">An evening to remember</div><div class="event-name">The Reception</div>
-<div class="rule"><span>✧</span></div>
-<div class="event-details"><strong>Sunday, 31st January 2027</strong><br>8:00 PM onwards</div>
-<div class="location">Hotel Residency Park<br>Dhule, Maharashtra</div>
-<p class="copy" style="margin:1.5rem 0 0">Dinner, laughter, and a joyful beginning — we can't wait to celebrate with you.</p>
-</div><div class="scroll-note">Count down to forever</div>
-</section>
-<section id="countdown">
-<span class="floating-petal" style="left:5%">✿</span><span class="floating-petal">✿</span><span class="floating-petal">✿</span><span class="floating-petal">✿</span>
-<div class="content reveal">
-<div class="eyebrow">The countdown to forever</div><h2>Until We Say “I Do”</h2>
-<p class="copy">Our forever begins in…</p>
-<div class="count-grid" aria-live="polite">
-<div class="count-unit"><div class="count-num" id="days">000</div><div class="count-label">Days</div></div>
-<div class="count-unit"><div class="count-num" id="hours">00</div><div class="count-label">Hours</div></div>
-<div class="count-unit"><div class="count-num" id="minutes">00</div><div class="count-label">Minutes</div></div>
-<div class="count-unit"><div class="count-num" id="seconds">00</div><div class="count-label">Seconds</div></div>
-</div>
-<div class="rule"><span>❦</span></div>
-<p class="copy">Save the dates · 30–31 January 2027</p>
-<p class="footer-note">With love, Anshul &amp; Neha</p>
-</div>
-</section>
-<script>
-const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-  if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
-}), {threshold: .14});
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-const weddingDate = new Date('2027-01-31T13:00:00+05:30').getTime();
-function updateCountdown(){
-  const diff = weddingDate - Date.now();
-  if(diff <= 0){
-    document.getElementById('days').textContent='00';
-    document.getElementById('hours').textContent='00';
-    document.getElementById('minutes').textContent='00';
-    document.getElementById('seconds').textContent='00';
-    document.querySelector('#countdown .copy').textContent='Today is the beginning of forever!';
-    return;
-  }
-  document.getElementById('days').textContent=String(Math.floor(diff/86400000)).padStart(3,'0');
-  document.getElementById('hours').textContent=String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
-  document.getElementById('minutes').textContent=String(Math.floor(diff%3600000/60000)).padStart(2,'0');
-  document.getElementById('seconds').textContent=String(Math.floor(diff%60000/1000)).padStart(2,'0');
-}
-updateCountdown();setInterval(updateCountdown,1000);
-</script>
+
+<body class="locked">
+
+  <!-- ==========================
+       ENVELOPE OPENING SCREEN
+  ========================== -->
+
+  <div id="invitation" role="dialog" aria-modal="true"
+       aria-label="Wedding invitation for Anshul and Neha">
+
+    <div class="intro-flower one" aria-hidden="true">❀</div>
+    <div class="intro-flower two" aria-hidden="true">✿</div>
+
+    <div class="intro-content">
+      <p class="intro-kicker">
+        A special invitation<br />
+        Made with love
+      </p>
+
+      <button class="envelope-button" id="envelopeButton"
+              aria-label="Open Anshul and Neha's wedding envelope">
+
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+
+          <div class="envelope-letter">
+            <div class="letter-monogram">A N</div>
+            <div class="letter-names">Anshul &amp; Neha</div>
+            <div class="letter-date">30 · 31 JANUARY 2027</div>
+          </div>
+
+          <div class="envelope-front"></div>
+          <div class="envelope-flap"></div>
+
+          <div class="wax-seal" aria-hidden="true">A N</div>
+        </div>
+      </button>
+
+      <button class="open-invitation" id="openInvitation">
+        Open Your Invitation
+      </button>
+
+      <p class="intro-script">With love, Anshul &amp; Neha</p>
+      <p class="intro-hint">Tap the envelope to begin our celebration</p>
+    </div>
+  </div>
+
+  <!-- Music begins after the guest taps the envelope. -->
+  <audio id="weddingMusic"
+         src="./wedding-music.mp3"
+         preload="none"
+         loop></audio>
+
+  <button id="musicToggle" class="music-toggle"
+          aria-label="Pause wedding music">
+    <span class="music-bars" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </span>
+    <span id="musicLabel">Music On</span>
+  </button>
+
+  <main id="weddingWebsite">
+
+    <!-- PAGE 1: GANESHJI WELCOME -->
+
+    <section class="page hero" id="home">
+      <div class="page-content reveal">
+
+        <p class="ganesh-mantra">
+          ॥ SHREE GANESHAYA NAMAHA ॥
+        </p>
+
+        <p class="eyebrow">Together with our families</p>
+
+        <h1>
+          Anshul
+          <span>&amp;</span>
+          Neha
+        </h1>
+
+        <div class="ornament">✧ ❀ ✧</div>
+
+        <p class="invitation-line">
+          Two hearts, two families, and one beautiful beginning.
+          With the blessings of our elders, we invite you to join
+          us as we begin our forever together.
+        </p>
+
+        <p class="scroll-cue">
+          Our beautiful beginning
+          <span>↓</span>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PAGE 2: FAMILY INTRODUCTION -->
+
+    <section class="page family" id="families">
+      <div class="page-content reveal">
+
+        <p class="eyebrow">With the blessings of our families</p>
+
+        <h2 class="family-heading">Two Families, One Celebration</h2>
+
+        <div class="gold-line"></div>
+
+        <div class="family-names">
+
+          <div class="family-person">
+            <p class="role">The Groom</p>
+            <h2>Anshul</h2>
+            <div class="gold-line"></div>
+            <p>
+              Son of<br />
+              <strong>Mrs. Sangeeta Matani</strong><br />
+              &amp;<br />
+              <strong>Dr. Rajesh Matani</strong>
+            </p>
+          </div>
+
+          <div class="family-and">&amp;</div>
+
+          <div class="family-person">
+            <p class="role">The Bride</p>
+            <h2>Neha</h2>
+            <div class="gold-line"></div>
+            <p>
+              Daughter of<br />
+              <strong>Mrs. Veena Balwani</strong><br />
+              &amp;<br />
+              <strong>Mr. Balwani</strong>
+            </p>
+          </div>
+
+        </div>
+
+        <p class="family-blessing">
+          A new chapter, blessed by the love of two families.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PAGE 3: AN LOGO AND CELEBRATIONS -->
+
+    <section class="page celebrations" id="celebrations">
+      <div class="page-content reveal">
+
+        <p class="eyebrow">The beginning of forever</p>
+
+        <div class="monogram" aria-label="Anshul and Neha monogram">
+          <span>A</span><span>N</span>
+        </div>
+
+        <p class="script">Together with love</p>
+
+        <h2>Wedding Celebrations</h2>
+
+        <div class="ornament">✧ ❀ ✧</div>
+
+        <p class="section-note">
+          Join us for moments filled with music, laughter,
+          blessings, and memories to cherish for a lifetime.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- PAGE 4: SANGEET -->
+
+    <section class="page event sangeet" id="sangeet">
+      <div class="page-content reveal">
+
+        <div class="event-card">
+
+          <div class="event-icon">❀</div>
+
+          <p class="eyebrow">An evening of music &amp; magic</p>
+
+          <h2>Sangeet Soirée</h2>
+
+          <div class="gold-line"></div>
+
+          <p class="event-date">
+            Saturday,<br />
+            30th January 2027
+          </p>
+
+          <p class="event-time">8:00 PM onwards</p>
+
+          <p class="event-venue">
+            <strong>Hotel Residency Park</strong>
+            Dhule, Maharashtra
+          </p>
+
+          <p class="event-footer">
+            Let the celebrations begin!
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 5: WEDDING CEREMONY -->
+
+    <section class="page event wedding" id="wedding">
+      <div class="page-content reveal">
+
+        <div class="event-card">
+
+          <div class="event-icon">✧</div>
+
+          <p class="eyebrow">A sacred promise, a lifetime of love</p>
+
+          <h2>Wedding Vows</h2>
+
+          <div class="gold-line"></div>
+
+          <p class="event-date">
+            Sunday,<br />
+            31st January 2027
+          </p>
+
+          <p class="event-time">1:00 PM onwards</p>
+
+          <p class="event-venue">
+            <strong>Hotel Residency Park</strong>
+            Dhule, Maharashtra
+          </p>
+
+          <p class="event-footer">
+            Two souls, one eternal bond.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 6: RECEPTION -->
+
+    <section class="page event reception" id="reception">
+      <div class="page-content reveal">
+
+        <div class="event-card">
+
+          <div class="event-icon">❀</div>
+
+          <p class="eyebrow">An evening of love &amp; togetherness</p>
+
+          <h2>Wedding Reception</h2>
+
+          <div class="gold-line"></div>
+
+          <p class="event-date">
+            Sunday,<br />
+            31st January 2027
+          </p>
+
+          <p class="event-time">8:00 PM onwards</p>
+
+          <p class="event-venue">
+            <strong>Hotel Residency Park</strong>
+            Dhule, Maharashtra
+          </p>
+
+          <p class="event-footer">
+            Celebrate our happily ever after!
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 7: WEDDING COUNTDOWN -->
+
+    <section class="page countdown" id="countdown">
+      <div class="page-content reveal">
+
+        <p class="eyebrow">The countdown to forever</p>
+
+        <h2>Until We Say<br />“I Do”</h2>
+
+        <p class="countdown-intro">
+          Our forever begins in...
+        </p>
+
+        <div class="timer" aria-label="Time remaining until the wedding">
+
+          <div class="timer-box">
+            <span class="timer-number" id="days">000</span>
+            <span class="timer-label">Days</span>
+          </div>
+
+          <div class="timer-box">
+            <span class="timer-number" id="hours">00</span>
+            <span class="timer-label">Hours</span>
+          </div>
+
+          <div class="timer-box">
+            <span class="timer-number" id="minutes">00</span>
+            <span class="timer-label">Minutes</span>
+          </div>
+
+          <div class="timer-box">
+            <span class="timer-number" id="seconds">00</span>
+            <span class="timer-label">Seconds</span>
+          </div>
+
+        </div>
+
+        <p class="countdown-message" id="countdownMessage">
+          We cannot wait to celebrate with you!
+        </p>
+
+        <div class="ornament">✧ ❀ ✧</div>
+
+        <p class="section-note">
+          Your presence will make our special day even more beautiful.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Made with love, for our forever. ♡
+    <br />
+    <span style="font-size:14px">Anshul &amp; Neha · 2027</span>
+  </footer>
+
+  <script>
+    /* ==========================
+       OPEN ENVELOPE AND START MUSIC
+    ========================== */
+
+    const invitation = document.getElementById("invitation");
+    const envelope = document.getElementById("envelope");
+    const openButton = document.getElementById("openInvitation");
+    const envelopeButton = document.getElementById("envelopeButton");
+    const music = document.getElementById("weddingMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicLabel = document.getElementById("musicLabel");
+
+    let hasOpened = false;
+
+    async function openWeddingInvitation() {
+      if (hasOpened) return;
+
+      hasOpened = true;
+
+      // Start the envelope animation.
+      envelope.classList.add("opening");
+
+      // Start music directly from the guest's click.
+      try {
+        await music.play();
+        musicToggle.classList.add("playing");
+        musicLabel.textContent = "Music On";
+        musicToggle.setAttribute("aria-label", "Pause wedding music");
+      } catch (error) {
+        // The invitation still opens if the music file is missing.
+        console.warn(
+          "Music could not start. Check assets/wedding-music.mp3.",
+          error
+        );
+      }
+
+      // Reveal the website after the envelope begins opening.
+      window.setTimeout(() => {
+        invitation.classList.add("dismissed");
+        document.body.classList.remove("locked");
+
+        musicToggle.classList.add("visible");
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+          const rect = element.getBoundingClientRect();
+
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            element.classList.add("visible");
+          }
+        });
+
+        // Keep the intro out of the way once it has disappeared.
+        window.setTimeout(() => {
+          invitation.style.display = "none";
+        }, 1100);
+
+      }, 1050);
+    }
+
+    openButton.addEventListener("click", openWeddingInvitation);
+    envelopeButton.addEventListener("click", openWeddingInvitation);
+
+    /* ==========================
+       MUSIC PLAY / PAUSE CONTROL
+    ========================== */
+
+    musicToggle.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicToggle.classList.add("playing");
+          musicLabel.textContent = "Music On";
+          musicToggle.setAttribute("aria-label", "Pause wedding music");
+        } catch (error) {
+          musicLabel.textContent = "Music Unavailable";
+          console.warn("Unable to play wedding music.", error);
+        }
+      } else {
+        music.pause();
+        musicToggle.classList.remove("playing");
+        musicLabel.textContent = "Music Off";
+        musicToggle.setAttribute("aria-label", "Play wedding music");
+      }
+    });
+
+    /* ==========================
+       SCROLL REVEAL ANIMATIONS
+    ========================== */
+
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      revealObserver.observe(element);
+    });
+
+    /* ==========================
+       LIVE WEDDING COUNTDOWN
+       Indian Standard Time: UTC+05:30
+    ========================== */
+
+    // Countdown targets the ceremony at 1 PM IST on 31 January 2027.
+    const weddingDate = new Date("2027-01-31T13:00:00+05:30").getTime();
+
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+    const minutesElement = document.getElementById("minutes");
+    const secondsElement = document.getElementById("seconds");
+    const countdownMessage = document.getElementById("countdownMessage");
+
+    function updateCountdown() {
+      const now = Date.now();
+      const remaining = weddingDate - now;
+
+      if (remaining <= 0) {
+        daysElement.textContent = "000";
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
+
+        countdownMessage.textContent =
+          "Today, our forever begins!";
+
+        return;
+      }
+
+      const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (remaining / (1000 * 60 * 60)) % 24
+      );
+      const minutes = Math.floor(
+        (remaining / (1000 * 60)) % 60
+      );
+      const seconds = Math.floor(
+        (remaining / 1000) % 60
+      );
+
+      daysElement.textContent = String(days).padStart(3, "0");
+      hoursElement.textContent = String(hours).padStart(2, "0");
+      minutesElement.textContent = String(minutes).padStart(2, "0");
+      secondsElement.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+  </script>
+
 </body>
 </html>
