@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -401,6 +400,9 @@
 
     /* ==========================
        PAGE 1: GANESHA WELCOME
+       (the only page that uses ganeshji.png)
+       The overlay is now very light, only a soft fade
+       on the text side, so the artwork stays vivid.
     ========================== */
 
     .hero {
@@ -412,21 +414,24 @@
       background: linear-gradient(
         90deg,
         transparent 0%,
-        #fff4e5aa 43%,
-        #fff4e5c9 100%
+        transparent 45%,
+        #fff4e53d 70%,
+        #fff4e66b 100%
       );
     }
 
     .hero .page-content {
       margin-left: auto;
       margin-right: 3%;
-      max-width: 55%;
+      max-width: 52%;
+      text-shadow: 0 0 14px #fff6e8, 0 0 28px #fff6e8cc;
     }
 
     .ganesh-mantra {
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(12px, 2vw, 16px);
-      color: #a06e36;
+      color: #8a5a22;
+      font-weight: 600;
       letter-spacing: .12em;
       margin-bottom: 34px;
     }
@@ -434,7 +439,7 @@
     .hero h1 {
       font-size: clamp(48px, 9vw, 94px);
       line-height: .98;
-      color: #774744;
+      color: #6a3a37;
     }
 
     .hero h1 span {
@@ -442,7 +447,7 @@
       margin: 9px 0;
       font-family: "Great Vibes", cursive;
       font-size: .65em;
-      color: #b78a45;
+      color: #a77a35;
     }
 
     .hero .invitation-line {
@@ -450,8 +455,9 @@
       margin: 28px auto 0;
       font-family: "Cormorant Garamond", serif;
       font-size: clamp(18px, 2.5vw, 25px);
+      font-weight: 500;
       line-height: 1.65;
-      color: #785a4e;
+      color: #5f4034;
     }
 
     .scroll-cue {
@@ -534,12 +540,12 @@
 
     /* ==========================
        PAGE 3: AN MONOGRAM
+       (plain background, no Ganeshji)
     ========================== */
 
     .celebrations {
       background:
-        linear-gradient(#fff3e9a3, #fff4e7d9),
-        url("./ganeshji.png") center / cover no-repeat;
+        radial-gradient(ellipse at center, #fffaf2 0%, #f9e0d0 100%);
     }
 
     .monogram {
@@ -590,6 +596,11 @@
 
     /* ==========================
        EVENT PAGES
+       The background art is shown almost untouched and the
+       text sits in the empty space of each image.
+       To move the text on a page, change --text-side on
+       .sangeet / .wedding / .reception below:
+       flex-start = left, center = middle, flex-end = right.
     ========================== */
 
     .event {
@@ -597,40 +608,45 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+      justify-content: var(--text-side, flex-end);
+      padding-left: 5%;
+      padding-right: 5%;
     }
 
     .sangeet {
       background-image: url("./sangeet.png");
+      --text-side: flex-end;
     }
 
     .wedding {
       background-image: url("./wedding.png");
+      --text-side: flex-end;
     }
 
     .reception {
       background-image: url("./reception.png");
+      --text-side: flex-end;
     }
 
+    /* very light veil, so the artwork stays prominent */
     .event::before {
-      background:
-        linear-gradient(
-          180deg,
-          #fff4e8b0 0%,
-          #fff8efce 40%,
-          #fff3e8c9 100%
-        );
+      background: linear-gradient(180deg, #fff4e81f 0%, #fff8ef0f 50%, #fff3e824 100%);
+    }
+
+    .event .page-content {
+      width: min(460px, 100%);
+      margin: 0;
     }
 
     .event-card {
-      max-width: 600px;
-      padding: clamp(27px, 6vw, 55px);
-      margin: auto;
-      border: 1px solid #c9a461;
-      outline: 1px solid #c9a46173;
-      outline-offset: 7px;
-      background: #fff8efd9;
-      box-shadow: 0 15px 50px #6a473015;
-      backdrop-filter: blur(4px);
+      width: 100%;
+      padding: clamp(18px, 3vw, 34px);
+      margin: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      box-shadow: none;
+      text-shadow: 0 0 12px #fff6e9, 0 0 26px #fff6e9d9, 0 0 2px #fff6e9;
     }
 
     .event-icon {
@@ -639,25 +655,31 @@
       color: var(--gold);
     }
 
+    .event-card .eyebrow {
+      font-weight: 600;
+    }
+
     .event-card h2 {
-      font-size: clamp(43px, 8vw, 76px);
+      font-size: clamp(40px, 6.5vw, 68px);
       line-height: 1.05;
-      color: #834f4c;
+      color: #754341;
       margin: 15px 0 18px;
     }
 
     .event-date {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(20px, 3.4vw, 28px);
+      font-size: clamp(20px, 3.2vw, 27px);
+      font-weight: 600;
       line-height: 1.6;
-      color: #7b5949;
+      color: #5f4034;
     }
 
     .event-time {
       margin-top: 8px;
       font-size: 12px;
+      font-weight: 500;
       letter-spacing: .15em;
-      color: #a17a4b;
+      color: #8a6232;
       text-transform: uppercase;
     }
 
@@ -665,13 +687,14 @@
       margin-top: 24px;
       font-family: "Cormorant Garamond", serif;
       font-size: 22px;
+      font-weight: 500;
       line-height: 1.6;
-      color: #74564b;
+      color: #5f4034;
     }
 
     .event-venue strong {
       display: block;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .event-footer {
@@ -683,12 +706,12 @@
 
     /* ==========================
        PAGE 7: COUNTDOWN
+       (plain background, no Ganeshji)
     ========================== */
 
     .countdown {
       background:
-        linear-gradient(#fff6eddb, #fff1e4ed),
-        url("./ganeshji.png") center / cover no-repeat;
+        radial-gradient(ellipse at center, #fffaf2 0%, #f9e0d0 100%);
     }
 
     .countdown h2 {
@@ -812,10 +835,10 @@
 
       .hero::before {
         background: linear-gradient(
-          90deg,
-          #fff5e5b0 0%,
-          #fff5e5ce 50%,
-          #fff5e5ec 100%
+          180deg,
+          transparent 0%,
+          #fff5e540 45%,
+          #fff5e58a 100%
         );
       }
 
@@ -866,16 +889,25 @@
         font-size: 49px;
       }
 
+      /* On phones the image is cropped, so text is centred
+         and sits on a soft glow to stay readable. */
       .event {
         background-position: center;
+        justify-content: center;
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
       .event::before {
-        background: #fff4e8b9;
+        background: #fff4e824;
+      }
+
+      .event .page-content {
+        width: 100%;
       }
 
       .event-card {
-        padding: 30px 20px;
+        padding: 24px 12px;
       }
 
       .event-venue {
@@ -919,6 +951,99 @@
         padding: 14px 20px;
         letter-spacing: .1em;
       }
+    }
+
+    /* ======================================================
+       LAYOUT TUNED TO THE ARTWORK (portrait images)
+       Overlays removed so the art is fully visible; text
+       sits in each image's empty area.
+       Images: ganeshji = page 1, sangeet.png = tabla/guitar,
+       wedding.png = havan fire, reception.png = sofa/chandelier.
+    ====================================================== */
+
+    :root { --iw: calc(100svh * .5628); }  /* width of a portrait image shown at full height */
+
+    .hero::before,
+    .event::before { background: none; }
+
+    .hero, .event {
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    .hero      { background-color: #fdf0dc; }
+    .sangeet   { background-color: #fbe3d6; }
+    .wedding   { background-color: #fdeedd; }
+    .reception { background-color: #fdeedd; }
+
+    /* ---- Page 1: text in the open space, top right ---- */
+    .hero {
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 12svh 4% 0 4%;
+    }
+
+    .hero .page-content {
+      width: 66%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero .ganesh-mantra { font-size: 11px; letter-spacing: .08em; margin-bottom: 14px; }
+    .hero h1 { font-size: min(15vw, 7svh); }
+    .hero h1 span { font-size: .55em; margin: 4px 0; }
+    .hero .ornament { margin: 12px auto; }
+    .hero .invitation-line { margin-top: 14px; font-size: min(4.2vw, 2.1svh); }
+    .hero .scroll-cue { margin-top: 18px; }
+
+    /* ---- Event pages: text centred in the empty area ---- */
+    .event {
+      align-items: center;
+      justify-content: center;
+      padding-left: 6%;
+      padding-right: 6%;
+    }
+
+    .sangeet   { padding-top: 17svh; padding-bottom: 22svh; }
+    .wedding   { padding-top: 15svh; padding-bottom: 28svh; }
+    .reception { padding-top: 17svh; padding-bottom: 33svh; }
+
+    .event .page-content { width: min(100%, 360px); margin: 0; }
+
+    .event-card { padding: 0; }
+
+    .event-icon { font-size: 20px; margin-bottom: 8px; }
+    .event-card .eyebrow { font-size: 9px; letter-spacing: .2em; line-height: 1.8; }
+    .event-card h2 { font-size: min(11vw, 5.6svh); margin: 8px 0 10px; }
+    .event-card .gold-line { margin: 12px auto; }
+    .event-date { font-size: min(6vw, 2.8svh); line-height: 1.45; }
+    .event-time { font-size: 11px; margin-top: 6px; }
+    .event-venue { font-size: min(5vw, 2.4svh); margin-top: 14px; line-height: 1.45; }
+    .event-footer { font-size: min(7vw, 3.2svh); margin-top: 14px; }
+
+    /* ---- Desktop / landscape: show the whole portrait image
+            and keep text inside its empty area ---- */
+    @media (orientation: landscape) {
+      .hero, .event { background-size: auto 100%; }
+
+      .hero {
+        justify-content: center;
+        padding: 9svh 0 0 0;
+      }
+
+      .hero .page-content {
+        width: calc(var(--iw) * .56);
+        margin-left: calc(var(--iw) * .36);  /* moves text to the right-hand open space */
+      }
+
+      .hero .ganesh-mantra { font-size: min(11px, 1.3svh); }
+      .hero h1 { font-size: min(10vw, 6.2svh); }
+      .hero .invitation-line { font-size: min(2vw, 1.9svh); }
+
+      .event { padding-left: 0; padding-right: 0; }
+      .event .page-content { width: calc(var(--iw) * .56); }
     }
   </style>
 </head>
@@ -1289,7 +1414,7 @@
       } catch (error) {
         // The invitation still opens if the music file is missing.
         console.warn(
-          "Music could not start. Check assets/wedding-music.mp3.",
+          "Music could not start. Check wedding-music.mp3.",
           error
         );
       }
