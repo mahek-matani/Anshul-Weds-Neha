@@ -31,6 +31,9 @@
       --font-serif: "Lora", serif;
       --font-script: "Alex Brush", cursive;
       --font-sans: "Plus Jakarta Sans", sans-serif;
+
+      --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-flap: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -91,21 +94,24 @@
       overflow: hidden;
       background:
         radial-gradient(ellipse at 50% 35%, #fffdf8 0%, #fff0e5 52%, #eac8b7 100%);
-      transition: opacity 1s ease, visibility 1s ease;
+      transition: opacity 1.1s var(--ease-luxury), transform 1.1s var(--ease-luxury), visibility 1.1s;
     }
 
     #invitation.dismissed {
       opacity: 0;
+      transform: scale(1.04);
       visibility: hidden;
       pointer-events: none;
     }
 
+    /* Ambient floating florals & sparkles on intro */
     .intro-flower {
       position: absolute;
       font-size: clamp(90px, 19vw, 190px);
       color: #d99c8f;
-      opacity: .13;
+      opacity: .14;
       pointer-events: none;
+      animation: flowerSway 9s ease-in-out infinite alternate;
     }
 
     .intro-flower.one {
@@ -116,14 +122,36 @@
     .intro-flower.two {
       bottom: -55px;
       right: -20px;
+      animation-delay: -4.5s;
     }
+
+    .ambient-petals {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-petals span {
+      position: absolute;
+      color: #c89654;
+      opacity: 0;
+      font-size: 14px;
+      animation: floatUp 8s linear infinite;
+    }
+
+    .ambient-petals span:nth-child(1) { left: 14%; animation-delay: 0s; font-size: 12px; }
+    .ambient-petals span:nth-child(2) { left: 32%; animation-delay: 2.2s; font-size: 16px; }
+    .ambient-petals span:nth-child(3) { left: 68%; animation-delay: 1.1s; font-size: 11px; }
+    .ambient-petals span:nth-child(4) { left: 84%; animation-delay: 3.5s; font-size: 15px; }
+    .ambient-petals span:nth-child(5) { left: 50%; animation-delay: 4.8s; font-size: 13px; }
 
     .intro-content {
       width: min(430px, 100%);
       text-align: center;
       position: relative;
       z-index: 2;
-      animation: introFade 1.2s ease both;
+      animation: introFade 1.2s var(--ease-luxury) both;
     }
 
     .intro-kicker {
@@ -133,7 +161,8 @@
       letter-spacing: .24em;
       line-height: 2;
       text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
+      transition: opacity .5s ease, transform .5s ease;
     }
 
     .envelope-button {
@@ -147,64 +176,112 @@
     }
 
     .envelope {
-      height: clamp(190px, 48vw, 245px);
+      height: clamp(195px, 48vw, 245px);
       width: 100%;
       max-width: 370px;
       margin: auto;
       position: relative;
-      perspective: 1000px;
-      filter: drop-shadow(0 18px 22px #754c3428);
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 20px 26px #6b422930);
+      animation: envelopeFloat 4.5s ease-in-out infinite;
+      transition: transform .7s var(--ease-luxury), filter .7s var(--ease-luxury);
     }
 
+    .envelope-button:hover .envelope {
+      transform: translateY(-4px) scale(1.015);
+      filter: drop-shadow(0 26px 32px #6b42293d);
+    }
+
+    .envelope.opening {
+      animation: none;
+      transform: translateY(34px) scale(1.03);
+    }
+
+    /* Inner envelope lining */
     .envelope-back {
       position: absolute;
       inset: 0;
+      z-index: 1;
       border: 1px solid #c39a5e;
-      border-radius: 4px;
-      background: #eed5b9;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #dfc09d 0%, #eed6ba 100%);
+      box-shadow: inset 0 10px 24px #7b523326;
     }
 
+    /* Rising invitation card */
     .envelope-letter {
       position: absolute;
       z-index: 2;
-      top: 8%;
+      top: 9%;
       left: 7%;
       width: 86%;
-      height: 87%;
+      height: 85%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff5ea;
+      background: linear-gradient(180deg, #fffcf7 0%, #fff3e4 100%);
       border: 1px solid #d7b97e;
-      transition: transform 1s .15s ease;
+      border-radius: 3px;
+      box-shadow: 0 4px 14px #5e3b221a;
       overflow: hidden;
+      will-change: transform;
+      transition:
+        transform 1.05s var(--ease-luxury) 0.55s,
+        box-shadow 1.05s var(--ease-luxury) 0.55s;
+    }
+
+    .envelope-letter::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid #d7b97e66;
+      pointer-events: none;
     }
 
     .envelope-letter .logo-crop {
-      height: 92%;
+      height: 90%;
       width: auto;
+      transition: transform 1.1s var(--ease-luxury) 0.55s;
     }
 
+    /* Front pocket folds */
     .envelope-front {
       position: absolute;
       inset: 0;
-      z-index: 3;
-      background: linear-gradient(140deg, #f4e2cc, #e8c9a9);
-      clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+      z-index: 4;
+      border-radius: 0 0 6px 6px;
+      background: linear-gradient(155deg, #f6e6d2 0%, #e7c6a4 100%);
+      clip-path: polygon(0 0, 50% 56%, 100% 0, 100% 100%, 0 100%);
       border-bottom: 1px solid #c39a5e;
+      pointer-events: none;
     }
 
+    .envelope-front::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #ffffff40 0%, transparent 45%);
+    }
+
+    /* Top triangular flap with smooth 3D hinge */
     .envelope-flap {
       position: absolute;
       z-index: 5;
       top: 0;
       left: 0;
       width: 100%;
-      height: 65%;
-      background: linear-gradient(150deg, #fff0dc, #e8c9a9);
+      height: 64%;
+      border-radius: 6px 6px 0 0;
+      background: linear-gradient(165deg, #fff3e2 0%, #e6c4a0 100%);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       transform-origin: top center;
-      transition: transform .9s ease;
+      will-change: transform;
+      filter: drop-shadow(0 6px 8px #5c391f24);
+      transition:
+        transform 0.85s var(--ease-flap) 0.15s,
+        z-index 0s linear 0.52s,
+        filter 0.6s ease 0.15s;
       backface-visibility: visible;
     }
 
@@ -224,10 +301,13 @@
       border-radius: 50%;
       background: radial-gradient(circle at 30% 25%, #fff8ec 0%, #f3dec1 72%, #dfc096 100%);
       box-shadow:
-        0 4px 12px #5e381945,
+        0 5px 14px #5e38194a,
         inset 0 0 0 3px #c89d5466;
       overflow: hidden;
-      transition: opacity .3s ease, transform .3s ease;
+      will-change: transform, opacity;
+      transition:
+        opacity 0.35s ease,
+        transform 0.4s var(--ease-luxury);
     }
 
     .wax-seal .seal-logo {
@@ -241,24 +321,35 @@
       filter: contrast(1.1);
     }
 
+    /* Choreographed opening states */
+    .envelope.opening .wax-seal {
+      opacity: 0;
+      transform: translate(-50%, -62%) scale(0.78);
+    }
+
     .envelope.opening .envelope-flap {
       transform: rotateX(180deg);
+      z-index: 1;
+      filter: drop-shadow(0 0 0 transparent);
     }
 
     .envelope.opening .envelope-letter {
-      transform: translateY(-75px);
+      transform: translateY(-96px) scale(1.04);
+      box-shadow: 0 18px 34px #5e3b222e;
     }
 
-    .envelope.opening .wax-seal {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.85);
+    .envelope.opening .envelope-letter .logo-crop {
+      transform: scale(1.03);
     }
 
+    /* Shimmer button */
     .open-invitation {
-      margin-top: 37px;
-      padding: 15px 28px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 38px;
+      padding: 15px 30px;
       color: white;
-      background: var(--deep-rose);
+      background: linear-gradient(135deg, #8e5251 0%, #733e3d 100%);
       border: 1px solid var(--gold);
       border-radius: 40px;
       font-size: 10px;
@@ -266,13 +357,32 @@
       letter-spacing: .18em;
       text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 8px 24px #864d4c20;
-      transition: transform .25s, background .25s;
+      box-shadow: 0 10px 24px #864d4c2b;
+      transition: transform .35s var(--ease-luxury), box-shadow .35s var(--ease-luxury), opacity .4s ease;
+    }
+
+    .open-invitation::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, #ffffff38, transparent);
+      transform: skewX(-22deg);
+      animation: buttonShimmer 3.8s ease-in-out infinite;
     }
 
     .open-invitation:hover {
       transform: translateY(-3px);
-      background: #6e3e3e;
+      box-shadow: 0 14px 28px #864d4c3b;
+    }
+
+    .envelope.opening ~ .open-invitation,
+    #invitation.opening-active .open-invitation,
+    #invitation.opening-active .intro-hint {
+      opacity: 0.35;
+      pointer-events: none;
     }
 
     .intro-script {
@@ -283,10 +393,11 @@
     }
 
     .intro-hint {
-      margin-top: 10px;
+      margin-top: 8px;
       font-size: 10px;
       letter-spacing: .08em;
       color: #947a6a;
+      transition: opacity .4s ease;
     }
 
     /* ==========================
@@ -305,12 +416,14 @@
       border: 1px solid #cda76e;
       border-radius: 40px;
       background: #fff9f0ed;
+      backdrop-filter: blur(6px);
       color: var(--deep-rose);
       cursor: pointer;
       box-shadow: 0 5px 20px #5c3d2c18;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: .05em;
+      animation: fadeInScale .5s var(--ease-luxury) both;
     }
 
     .music-toggle.visible {
@@ -405,13 +518,14 @@
       margin: 20px auto;
       letter-spacing: .3em;
       font-size: 16px;
+      animation: gentlePulse 3.6s ease-in-out infinite;
     }
 
     .gold-line {
       width: 75px;
       height: 1px;
       margin: 18px auto;
-      background: var(--gold);
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .section-note {
@@ -493,7 +607,7 @@
       display: block;
       margin-top: 8px;
       font-size: 18px;
-      animation: bob 1.5s ease-in-out infinite;
+      animation: bob 1.8s ease-in-out infinite;
     }
 
     /* ==========================
@@ -530,6 +644,12 @@
       border: 1px solid #d5b27766;
       background: #fffcf799;
       border-radius: 4px;
+      transition: transform .45s var(--ease-luxury), box-shadow .45s var(--ease-luxury);
+    }
+
+    .family-person:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px #864d4c12;
     }
 
     .family-person h2 {
@@ -599,6 +719,7 @@
     .celebrations .logo-crop {
       width: min(290px, 74vw);
       margin: 10px auto 20px;
+      animation: logoBreath 6s ease-in-out infinite;
     }
 
     .celebrations h2 {
@@ -664,6 +785,8 @@
       font-size: 24px;
       margin-bottom: 16px;
       color: var(--gold);
+      display: inline-block;
+      animation: iconSpinSlow 14s linear infinite;
     }
 
     .event-card .eyebrow {
@@ -744,6 +867,11 @@
       background: #fffaf2d9;
       border: 1px solid #c5a15c;
       box-shadow: inset 0 0 0 4px #fff8ed;
+      transition: transform .35s var(--ease-luxury);
+    }
+
+    .timer-box:hover {
+      transform: translateY(-3px);
     }
 
     .timer-number {
@@ -782,13 +910,13 @@
     }
 
     /* ==========================
-       ANIMATIONS
+       STAGGERED SCROLL REVEAL ANIMATIONS
     ========================== */
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .9s ease, transform .9s ease;
+      transform: translateY(26px);
+      transition: opacity 1s var(--ease-luxury), transform 1s var(--ease-luxury);
     }
 
     .reveal.visible {
@@ -796,14 +924,76 @@
       transform: translateY(0);
     }
 
+    /* Stagger children inside revealed containers */
+    .reveal > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .85s var(--ease-luxury), transform .85s var(--ease-luxury);
+    }
+
+    .reveal.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: .06s; }
+    .reveal.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: .16s; }
+    .reveal.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: .26s; }
+    .reveal.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: .36s; }
+    .reveal.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: .46s; }
+    .reveal.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: .56s; }
+    .reveal.visible > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: .66s; }
+    .reveal.visible > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: .76s; }
+
+    /* ==========================
+       KEYFRAMES
+    ========================== */
+
     @keyframes introFade {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes envelopeFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes buttonShimmer {
+      0%, 55% { left: -120%; }
+      100% { left: 150%; }
+    }
+
+    @keyframes flowerSway {
+      from { transform: rotate(-4deg) scale(1); }
+      to { transform: rotate(5deg) scale(1.05); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(105vh) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.45; }
+      85% { opacity: 0.35; }
+      100% { transform: translateY(-10vh) rotate(240deg); opacity: 0; }
     }
 
     @keyframes bob {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(7px); }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+
+    @keyframes logoBreath {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.025); }
+    }
+
+    @keyframes iconSpinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.9) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
     }
 
     @keyframes musicBars {
@@ -1086,6 +1276,10 @@
 
     <div class="intro-flower one" aria-hidden="true">❀</div>
     <div class="intro-flower two" aria-hidden="true">✿</div>
+
+    <div class="ambient-petals" aria-hidden="true">
+      <span>✧</span><span>❀</span><span>✦</span><span>✿</span><span>✧</span>
+    </div>
 
     <div class="intro-content">
       <p class="intro-kicker">
@@ -1437,6 +1631,7 @@
 
       hasOpened = true;
 
+      invitation.classList.add("opening-active");
       envelope.classList.add("opening");
 
       try {
@@ -1451,6 +1646,7 @@
         );
       }
 
+      /* Wait for seal lift + flap fold + card glide to complete smoothly */
       window.setTimeout(() => {
         invitation.classList.add("dismissed");
         document.body.classList.remove("locked");
@@ -1467,9 +1663,9 @@
 
         window.setTimeout(() => {
           invitation.style.display = "none";
-        }, 1100);
+        }, 1150);
 
-      }, 1050);
+      }, 1750);
     }
 
     openButton.addEventListener("click", openWeddingInvitation);
