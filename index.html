@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
         rel="stylesheet" />
 
   <style>
@@ -26,6 +26,11 @@
       --gold: #bd914b;
       --dark: #563c35;
       --green: #697b5a;
+
+      --font-display: "Cinzel", serif;
+      --font-serif: "Lora", serif;
+      --font-script: "Alex Brush", cursive;
+      --font-sans: "Plus Jakarta Sans", sans-serif;
     }
 
     * {
@@ -42,7 +47,7 @@
     body {
       background: var(--cream);
       color: var(--dark);
-      font-family: "Montserrat", sans-serif;
+      font-family: var(--font-sans);
       overflow-x: hidden;
     }
 
@@ -59,13 +64,7 @@
     }
 
     /* ==========================
-       LOGO (circle + names + date)
-       Uses the full logo image "logo.png" and shows only the
-       circle monogram with the names and date below it.
-       The garlands on the sides/top are cropped out.
-       If you later save a pre-cropped logo, replace the
-       background rules below with:
-         background-size: contain; background-position: center;
+       LOGO (blended with background)
     ========================== */
 
     .logo-crop {
@@ -74,6 +73,8 @@
       background-repeat: no-repeat;
       background-size: 136.3% auto;
       background-position: 59.1% 33.5%;
+      mix-blend-mode: multiply;
+      filter: contrast(1.06) saturate(1.08);
     }
 
     /* ==========================
@@ -128,7 +129,8 @@
     .intro-kicker {
       color: var(--deep-rose);
       font-size: 10px;
-      letter-spacing: .25em;
+      font-weight: 600;
+      letter-spacing: .24em;
       line-height: 2;
       text-transform: uppercase;
       margin-bottom: 32px;
@@ -172,14 +174,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff1e4;
+      background: #fff5ea;
       border: 1px solid #d7b97e;
       transition: transform 1s .15s ease;
       overflow: hidden;
     }
 
     .envelope-letter .logo-crop {
-      height: 100%;
+      height: 92%;
       width: auto;
     }
 
@@ -206,24 +208,37 @@
       backface-visibility: visible;
     }
 
+    /* Wax seal featuring the blended logo monogram */
     .wax-seal {
       position: absolute;
       z-index: 6;
       left: 50%;
       top: 55%;
       transform: translate(-50%, -50%);
-      width: 59px;
-      height: 59px;
-      display: grid;
-      place-items: center;
-      border: 2px solid #f5d99e;
+      width: 68px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #e6c17a;
       border-radius: 50%;
-      color: #fff5dc;
-      background: radial-gradient(circle at 30% 25%, #d9b568, #98652e);
-      box-shadow: 0 3px 9px #8151243a;
-      font-family: "Great Vibes", cursive;
-      font-size: 27px;
-      transition: opacity .3s;
+      background: radial-gradient(circle at 30% 25%, #fff8ec 0%, #f3dec1 72%, #dfc096 100%);
+      box-shadow:
+        0 4px 12px #5e381945,
+        inset 0 0 0 3px #c89d5466;
+      overflow: hidden;
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .wax-seal .seal-logo {
+      width: 84%;
+      height: 84%;
+      background-image: url("./logo.png");
+      background-repeat: no-repeat;
+      background-size: 162% auto;
+      background-position: 59.1% 22%;
+      mix-blend-mode: multiply;
+      filter: contrast(1.1);
     }
 
     .envelope.opening .envelope-flap {
@@ -236,18 +251,19 @@
 
     .envelope.opening .wax-seal {
       opacity: 0;
+      transform: translate(-50%, -50%) scale(0.85);
     }
 
     .open-invitation {
       margin-top: 37px;
-      padding: 15px 26px;
+      padding: 15px 28px;
       color: white;
       background: var(--deep-rose);
       border: 1px solid var(--gold);
       border-radius: 40px;
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .16em;
+      font-weight: 600;
+      letter-spacing: .18em;
       text-transform: uppercase;
       cursor: pointer;
       box-shadow: 0 8px 24px #864d4c20;
@@ -261,14 +277,14 @@
 
     .intro-script {
       margin-top: 18px;
-      font-family: "Great Vibes", cursive;
+      font-family: var(--font-script);
       color: var(--deep-rose);
-      font-size: 26px;
+      font-size: 30px;
     }
 
     .intro-hint {
-      margin-top: 12px;
-      font-size: 9px;
+      margin-top: 10px;
+      font-size: 10px;
       letter-spacing: .08em;
       color: #947a6a;
     }
@@ -285,7 +301,7 @@
       display: none;
       align-items: center;
       gap: 9px;
-      padding: 12px 15px;
+      padding: 11px 15px;
       border: 1px solid #cda76e;
       border-radius: 40px;
       background: #fff9f0ed;
@@ -293,6 +309,8 @@
       cursor: pointer;
       box-shadow: 0 5px 20px #5c3d2c18;
       font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .05em;
     }
 
     .music-toggle.visible {
@@ -355,7 +373,7 @@
     }
 
     .page-content {
-      width: min(800px, 100%);
+      width: min(820px, 100%);
       margin: auto;
       position: relative;
       z-index: 2;
@@ -363,48 +381,48 @@
 
     .eyebrow {
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: .3em;
-      line-height: 2;
+      font-weight: 600;
+      letter-spacing: .28em;
+      line-height: 1.9;
       text-transform: uppercase;
       color: var(--deep-rose);
     }
 
     .script {
-      font-family: "Great Vibes", cursive;
+      font-family: var(--font-script);
       font-weight: 400;
       color: var(--deep-rose);
     }
 
     h1, h2, h3 {
-      font-family: "Cormorant Garamond", serif;
+      font-family: var(--font-display);
       font-weight: 500;
+      letter-spacing: .04em;
     }
 
     .ornament {
       color: var(--gold);
-      margin: 22px auto;
+      margin: 20px auto;
       letter-spacing: .3em;
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .gold-line {
-      width: 85px;
+      width: 75px;
       height: 1px;
-      margin: 20px auto;
+      margin: 18px auto;
       background: var(--gold);
     }
 
     .section-note {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 21px;
-      line-height: 1.7;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.75;
       color: #795b4e;
     }
 
     /* ==========================
        PAGE 1: GANESHA WELCOME
-       (the only page that uses ganeshji.png)
     ========================== */
 
     .hero {
@@ -430,41 +448,42 @@
     }
 
     .ganesh-mantra {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(12px, 2vw, 16px);
+      font-family: var(--font-display);
+      font-size: clamp(11px, 1.8vw, 15px);
       color: #8a5a22;
       font-weight: 600;
-      letter-spacing: .12em;
-      margin-bottom: 34px;
+      letter-spacing: .16em;
+      margin-bottom: 30px;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 9vw, 94px);
-      line-height: .98;
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: 1.05;
       color: #6a3a37;
     }
 
     .hero h1 span {
       display: block;
-      margin: 9px 0;
-      font-family: "Great Vibes", cursive;
-      font-size: .65em;
+      margin: 6px 0;
+      font-family: var(--font-script);
+      font-size: .72em;
       color: #a77a35;
     }
 
     .hero .invitation-line {
-      max-width: 420px;
-      margin: 28px auto 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(18px, 2.5vw, 25px);
-      font-weight: 500;
-      line-height: 1.65;
+      max-width: 430px;
+      margin: 24px auto 0;
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2.2vw, 21px);
+      font-weight: 400;
+      line-height: 1.7;
       color: #5f4034;
     }
 
     .scroll-cue {
-      margin-top: 40px;
+      margin-top: 36px;
       font-size: 9px;
+      font-weight: 600;
       letter-spacing: .23em;
       text-transform: uppercase;
       color: var(--deep-rose);
@@ -472,8 +491,8 @@
 
     .scroll-cue span {
       display: block;
-      margin-top: 10px;
-      font-size: 20px;
+      margin-top: 8px;
+      font-size: 18px;
       animation: bob 1.5s ease-in-out infinite;
     }
 
@@ -487,57 +506,85 @@
     }
 
     .family .page-content {
-      max-width: 760px;
+      max-width: 820px;
     }
 
     .family-heading {
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(43px, 8vw, 66px);
+      font-family: var(--font-script);
+      font-size: clamp(40px, 7vw, 64px);
       color: var(--deep-rose);
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      line-height: 1.15;
     }
 
     .family-names {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      align-items: start;
-      gap: 25px;
-      margin-top: 35px;
+      align-items: stretch;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    .family-person {
+      padding: 22px 18px;
+      border: 1px solid #d5b27766;
+      background: #fffcf799;
+      border-radius: 4px;
     }
 
     .family-person h2 {
-      font-size: clamp(31px, 5vw, 48px);
+      font-size: clamp(28px, 4.5vw, 42px);
       color: #87524d;
+      margin-bottom: 12px;
     }
 
-    .family-person p {
-      margin-top: 17px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(17px, 2.2vw, 21px);
-      line-height: 1.7;
-      color: #73574a;
-    }
-
-    .family-person p.grand {
+    .family-relation {
       margin-top: 10px;
-      font-size: clamp(15px, 2vw, 18px);
-      line-height: 1.6;
-      color: #8a6a5a;
+    }
+
+    .relation-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #9e745c;
+      margin-bottom: 4px;
+    }
+
+    .relation-names {
+      font-family: var(--font-serif);
+      font-size: clamp(14px, 1.9vw, 17px);
+      line-height: 1.55;
+      color: #63463a;
+    }
+
+    .relation-names strong {
+      font-weight: 600;
+      color: #563932;
+    }
+
+    .family-divider {
+      width: 48px;
+      height: 1px;
+      margin: 12px auto;
+      background: #c8a66a88;
     }
 
     .family-and {
-      font-family: "Great Vibes", cursive;
-      font-size: 49px;
+      font-family: var(--font-script);
+      font-size: 48px;
       color: var(--gold);
       align-self: center;
     }
 
     .family-blessing {
-      margin-top: 45px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 23px;
+      margin-top: 34px;
+      font-family: var(--font-serif);
+      font-size: 19px;
       font-style: italic;
-      color: #956d5c;
+      color: #8d6554;
     }
 
     /* ==========================
@@ -550,18 +597,18 @@
     }
 
     .celebrations .logo-crop {
-      width: min(300px, 78vw);
-      margin: 10px auto 24px;
+      width: min(290px, 74vw);
+      margin: 10px auto 20px;
     }
 
     .celebrations h2 {
-      font-size: clamp(42px, 8vw, 73px);
+      font-size: clamp(36px, 7vw, 64px);
       color: #795047;
     }
 
     .celebrations .script {
-      font-size: 30px;
-      margin-top: 18px;
+      font-size: 32px;
+      margin-top: 12px;
     }
 
     /* ==========================
@@ -614,8 +661,8 @@
     }
 
     .event-icon {
-      font-size: 26px;
-      margin-bottom: 20px;
+      font-size: 24px;
+      margin-bottom: 16px;
       color: var(--gold);
     }
 
@@ -624,47 +671,47 @@
     }
 
     .event-card h2 {
-      font-size: clamp(40px, 6.5vw, 68px);
-      line-height: 1.05;
+      font-size: clamp(34px, 5.8vw, 58px);
+      line-height: 1.1;
       color: #754341;
-      margin: 15px 0 18px;
+      margin: 12px 0 16px;
     }
 
     .event-date {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(20px, 3.2vw, 27px);
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2.8vw, 24px);
       font-weight: 600;
-      line-height: 1.6;
+      line-height: 1.55;
       color: #5f4034;
     }
 
     .event-time {
       margin-top: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: .15em;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
       color: #8a6232;
       text-transform: uppercase;
     }
 
     .event-venue {
-      margin-top: 24px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 22px;
+      margin-top: 22px;
+      font-family: var(--font-serif);
+      font-size: 19px;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.55;
       color: #5f4034;
     }
 
     .event-venue strong {
       display: block;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .event-footer {
-      margin-top: 29px;
-      font-family: "Great Vibes", cursive;
-      font-size: 28px;
+      margin-top: 24px;
+      font-family: var(--font-script);
+      font-size: 30px;
       color: var(--deep-rose);
     }
 
@@ -678,9 +725,9 @@
     }
 
     .countdown-intro {
-      margin-top: 17px;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 24px;
+      margin-top: 14px;
+      font-family: var(--font-serif);
+      font-size: 22px;
       color: #916c58;
     }
 
@@ -689,7 +736,7 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: clamp(8px, 3vw, 24px);
       width: min(620px, 100%);
-      margin: 40px auto 0;
+      margin: 36px auto 0;
     }
 
     .timer-box {
@@ -701,25 +748,27 @@
 
     .timer-number {
       display: block;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(32px, 7vw, 54px);
+      font-family: var(--font-display);
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 600;
       color: #8b5550;
       font-variant-numeric: tabular-nums;
     }
 
     .timer-label {
       display: block;
-      margin-top: 5px;
+      margin-top: 6px;
       font-size: 9px;
+      font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: #997b62;
     }
 
     .countdown-message {
-      margin-top: 30px;
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(27px, 5vw, 39px);
+      margin-top: 28px;
+      font-family: var(--font-script);
+      font-size: clamp(28px, 5vw, 40px);
       color: var(--deep-rose);
     }
 
@@ -728,8 +777,8 @@
       text-align: center;
       background: #f4dfd0;
       color: #805b50;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 18px;
+      font-family: var(--font-serif);
+      font-size: 16px;
     }
 
     /* ==========================
@@ -778,11 +827,11 @@
     @media (max-width: 700px) {
       .page {
         min-height: 100svh;
-        padding: 65px 24px;
+        padding: 46px 18px;
       }
 
       .page::after {
-        inset: 9px;
+        inset: 8px;
       }
 
       .hero {
@@ -801,42 +850,87 @@
       .hero .page-content {
         max-width: 100%;
         margin: auto;
-        padding: 25px 5px;
-      }
-
-      .hero h1 {
-        font-size: clamp(48px, 13vw, 75px);
+        padding: 20px 5px;
       }
 
       .ganesh-mantra {
-        font-size: 11px;
-        letter-spacing: .08em;
+        font-size: 10px;
+        letter-spacing: .1em;
+      }
+
+      /* Compact Mobile Family Section */
+      .family {
+        padding-top: 38px;
+        padding-bottom: 38px;
+      }
+
+      .family .eyebrow {
+        font-size: 9px;
+        letter-spacing: .2em;
+      }
+
+      .family-heading {
+        font-size: clamp(32px, 8.5vw, 42px);
+        margin-bottom: 4px;
+      }
+
+      .family .gold-line {
+        margin: 10px auto;
+        width: 55px;
       }
 
       .family-names {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .family-person {
+        padding: 13px 14px;
+      }
+
+      .family-person h2 {
+        font-size: 23px;
+        margin-bottom: 6px;
+      }
+
+      .family-relation {
+        margin-top: 4px;
+      }
+
+      .relation-label {
+        font-size: 8px;
+        letter-spacing: .14em;
+        margin-bottom: 2px;
+      }
+
+      .relation-names {
+        font-size: 13.5px;
+        line-height: 1.4;
+      }
+
+      .family-divider {
+        margin: 8px auto;
+        width: 36px;
       }
 
       .family-and {
-        font-size: 38px;
-        line-height: .8;
-      }
-
-      .family-person p {
-        margin-top: 9px;
+        font-size: 28px;
+        line-height: .7;
+        margin: -2px 0;
       }
 
       .family-blessing {
-        margin-top: 28px;
-        font-size: 21px;
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 1.45;
       }
 
       .event {
         background-position: center;
         justify-content: center;
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
       .event::before {
@@ -848,16 +942,16 @@
       }
 
       .event-card {
-        padding: 24px 12px;
+        padding: 20px 10px;
       }
 
       .event-venue {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .timer {
         gap: 7px;
-        margin-top: 30px;
+        margin-top: 28px;
       }
 
       .timer-box {
@@ -865,7 +959,7 @@
       }
 
       .timer-number {
-        font-size: clamp(28px, 8vw, 42px);
+        font-size: clamp(24px, 7.5vw, 38px);
       }
 
       .timer-label {
@@ -927,12 +1021,12 @@
       padding: 0;
     }
 
-    .hero .ganesh-mantra { font-size: 11px; letter-spacing: .08em; margin-bottom: 14px; }
-    .hero h1 { font-size: min(15vw, 7svh); }
-    .hero h1 span { font-size: .55em; margin: 4px 0; }
-    .hero .ornament { margin: 12px auto; }
-    .hero .invitation-line { margin-top: 14px; font-size: min(4.2vw, 2.1svh); }
-    .hero .scroll-cue { margin-top: 18px; }
+    .hero .ganesh-mantra { font-size: 10.5px; letter-spacing: .1em; margin-bottom: 12px; }
+    .hero h1 { font-size: min(13vw, 6.2svh); }
+    .hero h1 span { font-size: .62em; margin: 4px 0; }
+    .hero .ornament { margin: 10px auto; }
+    .hero .invitation-line { margin-top: 12px; font-size: min(3.9vw, 1.95svh); }
+    .hero .scroll-cue { margin-top: 16px; }
 
     .event {
       align-items: center;
@@ -951,12 +1045,12 @@
 
     .event-icon { font-size: 20px; margin-bottom: 8px; }
     .event-card .eyebrow { font-size: 9px; letter-spacing: .2em; line-height: 1.8; }
-    .event-card h2 { font-size: min(11vw, 5.6svh); margin: 8px 0 10px; }
+    .event-card h2 { font-size: min(9.5vw, 4.9svh); margin: 8px 0 10px; }
     .event-card .gold-line { margin: 12px auto; }
-    .event-date { font-size: min(6vw, 2.8svh); line-height: 1.45; }
-    .event-time { font-size: 11px; margin-top: 6px; }
-    .event-venue { font-size: min(5vw, 2.4svh); margin-top: 14px; line-height: 1.45; }
-    .event-footer { font-size: min(7vw, 3.2svh); margin-top: 14px; }
+    .event-date { font-size: min(5.4vw, 2.5svh); line-height: 1.45; }
+    .event-time { font-size: 10.5px; margin-top: 6px; }
+    .event-venue { font-size: min(4.6vw, 2.2svh); margin-top: 14px; line-height: 1.45; }
+    .event-footer { font-size: min(7.5vw, 3.4svh); margin-top: 14px; }
 
     @media (orientation: landscape) {
       .hero, .event { background-size: auto 100%; }
@@ -972,8 +1066,8 @@
       }
 
       .hero .ganesh-mantra { font-size: min(11px, 1.3svh); }
-      .hero h1 { font-size: min(10vw, 6.2svh); }
-      .hero .invitation-line { font-size: min(2vw, 1.9svh); }
+      .hero h1 { font-size: min(9vw, 5.6svh); }
+      .hero .invitation-line { font-size: min(1.8vw, 1.8svh); }
 
       .event { padding-left: 0; padding-right: 0; }
       .event .page-content { width: calc(var(--iw) * .56); }
@@ -1013,7 +1107,9 @@
           <div class="envelope-front"></div>
           <div class="envelope-flap"></div>
 
-          <div class="wax-seal" aria-hidden="true">A N</div>
+          <div class="wax-seal" aria-hidden="true">
+            <div class="seal-logo"></div>
+          </div>
         </div>
       </button>
 
@@ -1090,38 +1186,38 @@
 
           <div class="family-person">
             <h2>Anshul</h2>
-            <p class="grand">
-              Grandson of<br />
-              <strong>Smt. Vimla Devi Matani</strong><br />
-              &amp;<br />
-              <strong>Late Shri. Chandru Ji Matani</strong>
-            </p>
-            <div class="gold-line"></div>
-            <p>
-              Son of<br />
-              <strong>Mrs. Sangeeta Matani</strong><br />
-              &amp;<br />
-              <strong>Dr. Rajesh Matani</strong>
-            </p>
+            <div class="family-relation">
+              <span class="relation-label">Grandson of</span>
+              <p class="relation-names">
+                <strong>Smt. Vimla Devi Matani</strong> &amp; <strong>Late Shri. Chandru Ji Matani</strong>
+              </p>
+            </div>
+            <div class="family-divider"></div>
+            <div class="family-relation">
+              <span class="relation-label">Son of</span>
+              <p class="relation-names">
+                <strong>Mrs. Sangeeta Matani</strong> &amp; <strong>Dr. Rajesh Matani</strong>
+              </p>
+            </div>
           </div>
 
           <div class="family-and">&amp;</div>
 
           <div class="family-person">
             <h2>Neha</h2>
-            <p class="grand">
-              Granddaughter of<br />
-              <strong>Late Smt. Kaushalya Devi Balwani</strong><br />
-              &amp;<br />
-              <strong>Shri. Sewakram Ji Balwani</strong>
-            </p>
-            <div class="gold-line"></div>
-            <p>
-              Daughter of<br />
-              <strong>Mrs. Veena Balwani</strong><br />
-              &amp;<br />
-              <strong>Mr. Balwani</strong>
-            </p>
+            <div class="family-relation">
+              <span class="relation-label">Granddaughter of</span>
+              <p class="relation-names">
+                <strong>Late Smt. Kaushalya Devi Balwani</strong> &amp; <strong>Shri. Sewakram Ji Balwani</strong>
+              </p>
+            </div>
+            <div class="family-divider"></div>
+            <div class="family-relation">
+              <span class="relation-label">Daughter of</span>
+              <p class="relation-names">
+                <strong>Mrs. Veena Balwani</strong> &amp; <strong>Mr. Balwani</strong>
+              </p>
+            </div>
           </div>
 
         </div>
@@ -1318,7 +1414,7 @@
   <footer class="footer">
     Made with love, for our forever. ♡
     <br />
-    <span style="font-size:14px">Anshul &amp; Neha · 2027</span>
+    <span style="font-size:13px">Anshul &amp; Neha · 2027</span>
   </footer>
 
   <script>
