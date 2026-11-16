@@ -59,6 +59,24 @@
     }
 
     /* ==========================
+       LOGO (circle + names + date)
+       Uses the full logo image "logo.png" and shows only the
+       circle monogram with the names and date below it.
+       The garlands on the sides/top are cropped out.
+       If you later save a pre-cropped logo, replace the
+       background rules below with:
+         background-size: contain; background-position: center;
+    ========================== */
+
+    .logo-crop {
+      aspect-ratio: 910 / 1090;
+      background-image: url("./logo.png");
+      background-repeat: no-repeat;
+      background-size: 136.3% auto;
+      background-position: 59.1% 33.5%;
+    }
+
+    /* ==========================
        SEALED ENVELOPE INTRO
     ========================== */
 
@@ -147,36 +165,22 @@
     .envelope-letter {
       position: absolute;
       z-index: 2;
-      top: 12%;
+      top: 8%;
       left: 7%;
       width: 86%;
-      height: 83%;
+      height: 87%;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 13px;
-      background: #fffaf1;
+      background: #fff1e4;
       border: 1px solid #d7b97e;
       transition: transform 1s .15s ease;
+      overflow: hidden;
     }
 
-    .letter-monogram {
-      font-family: "Great Vibes", cursive;
-      font-size: 31px;
-      color: var(--gold);
-    }
-
-    .letter-names {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(28px, 7vw, 37px);
-      color: var(--deep-rose);
-    }
-
-    .letter-date {
-      font-size: 9px;
-      letter-spacing: .17em;
-      color: #866b56;
+    .envelope-letter .logo-crop {
+      height: 100%;
+      width: auto;
     }
 
     .envelope-front {
@@ -401,8 +405,6 @@
     /* ==========================
        PAGE 1: GANESHA WELCOME
        (the only page that uses ganeshji.png)
-       The overlay is now very light, only a soft fade
-       on the text side, so the artwork stays vivid.
     ========================== */
 
     .hero {
@@ -498,7 +500,7 @@
     .family-names {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
-      align-items: center;
+      align-items: start;
       gap: 25px;
       margin-top: 35px;
     }
@@ -516,18 +518,18 @@
       color: #73574a;
     }
 
-    .family-person .role {
-      font-family: "Montserrat", sans-serif;
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      color: #ad8856;
+    .family-person p.grand {
+      margin-top: 10px;
+      font-size: clamp(15px, 2vw, 18px);
+      line-height: 1.6;
+      color: #8a6a5a;
     }
 
     .family-and {
       font-family: "Great Vibes", cursive;
       font-size: 49px;
       color: var(--gold);
+      align-self: center;
     }
 
     .family-blessing {
@@ -539,8 +541,7 @@
     }
 
     /* ==========================
-       PAGE 3: AN MONOGRAM
-       (plain background, no Ganeshji)
+       PAGE 3: LOGO + CELEBRATIONS
     ========================== */
 
     .celebrations {
@@ -548,40 +549,9 @@
         radial-gradient(ellipse at center, #fffaf2 0%, #f9e0d0 100%);
     }
 
-    .monogram {
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 28px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: #fff8edc7;
-      box-shadow: inset 0 0 0 7px #fff7e6, inset 0 0 0 8px #c5a15d65;
-    }
-
-    .monogram::before {
-      content: "";
-      position: absolute;
-      inset: 9px;
-      border: 1px solid #c5a15d83;
-      border-radius: 50%;
-    }
-
-    .monogram span {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 68px;
-      color: #996d38;
-    }
-
-    .monogram span + span {
-      margin-left: -14px;
-      margin-top: 27px;
-      font-style: italic;
-      font-size: 58px;
-      color: #b97b78;
+    .celebrations .logo-crop {
+      width: min(300px, 78vw);
+      margin: 10px auto 24px;
     }
 
     .celebrations h2 {
@@ -596,11 +566,6 @@
 
     /* ==========================
        EVENT PAGES
-       The background art is shown almost untouched and the
-       text sits in the empty space of each image.
-       To move the text on a page, change --text-side on
-       .sangeet / .wedding / .reception below:
-       flex-start = left, center = middle, flex-end = right.
     ========================== */
 
     .event {
@@ -628,7 +593,6 @@
       --text-side: flex-end;
     }
 
-    /* very light veil, so the artwork stays prominent */
     .event::before {
       background: linear-gradient(180deg, #fff4e81f 0%, #fff8ef0f 50%, #fff3e824 100%);
     }
@@ -706,19 +670,11 @@
 
     /* ==========================
        PAGE 7: COUNTDOWN
-       (plain background, no Ganeshji)
     ========================== */
 
     .countdown {
       background:
         radial-gradient(ellipse at center, #fffaf2 0%, #f9e0d0 100%);
-    }
-
-    .countdown h2 {
-      font-size: clamp(45px, 8vw, 78px);
-      line-height: 1.1;
-      color: #87504d;
-      margin-top: 15px;
     }
 
     .countdown-intro {
@@ -876,21 +832,6 @@
         font-size: 21px;
       }
 
-      .monogram {
-        width: 135px;
-        height: 135px;
-      }
-
-      .monogram span {
-        font-size: 57px;
-      }
-
-      .monogram span + span {
-        font-size: 49px;
-      }
-
-      /* On phones the image is cropped, so text is centred
-         and sits on a soft glow to stay readable. */
       .event {
         background-position: center;
         justify-content: center;
@@ -955,13 +896,9 @@
 
     /* ======================================================
        LAYOUT TUNED TO THE ARTWORK (portrait images)
-       Overlays removed so the art is fully visible; text
-       sits in each image's empty area.
-       Images: ganeshji = page 1, sangeet.png = tabla/guitar,
-       wedding.png = havan fire, reception.png = sofa/chandelier.
     ====================================================== */
 
-    :root { --iw: calc(100svh * .5628); }  /* width of a portrait image shown at full height */
+    :root { --iw: calc(100svh * .5628); }
 
     .hero::before,
     .event::before { background: none; }
@@ -977,7 +914,6 @@
     .wedding   { background-color: #fdeedd; }
     .reception { background-color: #fdeedd; }
 
-    /* ---- Page 1: text in the open space, top right ---- */
     .hero {
       align-items: flex-start;
       justify-content: flex-end;
@@ -998,7 +934,6 @@
     .hero .invitation-line { margin-top: 14px; font-size: min(4.2vw, 2.1svh); }
     .hero .scroll-cue { margin-top: 18px; }
 
-    /* ---- Event pages: text centred in the empty area ---- */
     .event {
       align-items: center;
       justify-content: center;
@@ -1023,8 +958,6 @@
     .event-venue { font-size: min(5vw, 2.4svh); margin-top: 14px; line-height: 1.45; }
     .event-footer { font-size: min(7vw, 3.2svh); margin-top: 14px; }
 
-    /* ---- Desktop / landscape: show the whole portrait image
-            and keep text inside its empty area ---- */
     @media (orientation: landscape) {
       .hero, .event { background-size: auto 100%; }
 
@@ -1035,7 +968,7 @@
 
       .hero .page-content {
         width: calc(var(--iw) * .56);
-        margin-left: calc(var(--iw) * .36);  /* moves text to the right-hand open space */
+        margin-left: calc(var(--iw) * .36);
       }
 
       .hero .ganesh-mantra { font-size: min(11px, 1.3svh); }
@@ -1073,9 +1006,8 @@
           <div class="envelope-back"></div>
 
           <div class="envelope-letter">
-            <div class="letter-monogram">A N</div>
-            <div class="letter-names">Anshul &amp; Neha</div>
-            <div class="letter-date">30 · 31 JANUARY 2027</div>
+            <div class="logo-crop" role="img"
+                 aria-label="Anshul and Neha, 31st January 2027"></div>
           </div>
 
           <div class="envelope-front"></div>
@@ -1157,8 +1089,13 @@
         <div class="family-names">
 
           <div class="family-person">
-            <p class="role">The Groom</p>
             <h2>Anshul</h2>
+            <p class="grand">
+              Grandson of<br />
+              <strong>Smt. Vimla Devi Matani</strong><br />
+              &amp;<br />
+              <strong>Late Shri. Chandru Ji Matani</strong>
+            </p>
             <div class="gold-line"></div>
             <p>
               Son of<br />
@@ -1171,8 +1108,13 @@
           <div class="family-and">&amp;</div>
 
           <div class="family-person">
-            <p class="role">The Bride</p>
             <h2>Neha</h2>
+            <p class="grand">
+              Granddaughter of<br />
+              <strong>Late Smt. Kaushalya Devi Balwani</strong><br />
+              &amp;<br />
+              <strong>Shri. Sewakram Ji Balwani</strong>
+            </p>
             <div class="gold-line"></div>
             <p>
               Daughter of<br />
@@ -1191,16 +1133,15 @@
       </div>
     </section>
 
-    <!-- PAGE 3: AN LOGO AND CELEBRATIONS -->
+    <!-- PAGE 3: LOGO AND CELEBRATIONS -->
 
     <section class="page celebrations" id="celebrations">
       <div class="page-content reveal">
 
         <p class="eyebrow">The beginning of forever</p>
 
-        <div class="monogram" aria-label="Anshul and Neha monogram">
-          <span>A</span><span>N</span>
-        </div>
+        <div class="logo-crop" role="img"
+             aria-label="Anshul and Neha, 31st January 2027"></div>
 
         <p class="script">Together with love</p>
 
@@ -1331,8 +1272,6 @@
 
         <p class="eyebrow">The countdown to forever</p>
 
-        <h2>Until We Say<br />“I Do”</h2>
-
         <p class="countdown-intro">
           Our forever begins in...
         </p>
@@ -1402,24 +1341,20 @@
 
       hasOpened = true;
 
-      // Start the envelope animation.
       envelope.classList.add("opening");
 
-      // Start music directly from the guest's click.
       try {
         await music.play();
         musicToggle.classList.add("playing");
         musicLabel.textContent = "Music On";
         musicToggle.setAttribute("aria-label", "Pause wedding music");
       } catch (error) {
-        // The invitation still opens if the music file is missing.
         console.warn(
           "Music could not start. Check wedding-music.mp3.",
           error
         );
       }
 
-      // Reveal the website after the envelope begins opening.
       window.setTimeout(() => {
         invitation.classList.add("dismissed");
         document.body.classList.remove("locked");
@@ -1434,7 +1369,6 @@
           }
         });
 
-        // Keep the intro out of the way once it has disappeared.
         window.setTimeout(() => {
           invitation.style.display = "none";
         }, 1100);
@@ -1495,7 +1429,6 @@
        Indian Standard Time: UTC+05:30
     ========================== */
 
-    // Countdown targets the ceremony at 1 PM IST on 31 January 2027.
     const weddingDate = new Date("2027-01-31T13:00:00+05:30").getTime();
 
     const daysElement = document.getElementById("days");
