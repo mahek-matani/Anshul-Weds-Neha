@@ -900,6 +900,81 @@
       color: var(--deep-rose);
     }
 
+    /* ==========================
+       PAGE 8: FAMILY WELCOME & BLESSINGS
+    ========================== */
+
+    .welcome {
+      background:
+        radial-gradient(ellipse at 50% 30%, #fffaf2 0%, #f8dccb 100%);
+    }
+
+    .welcome .page-content {
+      max-width: 640px;
+    }
+
+    .welcome-script {
+      font-family: var(--font-script);
+      font-size: clamp(36px, 6.5vw, 56px);
+      color: var(--deep-rose);
+      line-height: 1.15;
+      margin-top: 6px;
+    }
+
+    .welcome-family {
+      font-size: clamp(26px, 5vw, 44px);
+      line-height: 1.2;
+      color: #795047;
+      margin-top: 4px;
+    }
+
+    .credit-group {
+      margin-top: 26px;
+    }
+
+    .credit-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: #9e745c;
+      margin-bottom: 8px;
+    }
+
+    .credit-names {
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 2.2vw, 19px);
+      line-height: 1.65;
+      color: #5f4034;
+    }
+
+    .credit-names strong {
+      display: block;
+      font-weight: 600;
+      color: #563932;
+    }
+
+    .credit-divider {
+      width: 28px;
+      height: 1px;
+      margin: 22px auto 0;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .awaiting {
+      margin-top: 30px;
+    }
+
+    .awaiting-name {
+      font-family: var(--font-script);
+      font-size: clamp(44px, 9vw, 70px);
+      color: var(--gold);
+      line-height: 1.1;
+      margin-top: 2px;
+    }
+
     .footer {
       padding: 28px 15px;
       text-align: center;
@@ -1161,6 +1236,35 @@
         right: 12px;
         bottom: 12px;
       }
+
+      /* Compact Mobile Welcome / Blessings Section */
+      .welcome {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .credit-group {
+        margin-top: 20px;
+      }
+
+      .credit-label {
+        font-size: 8.5px;
+        letter-spacing: .18em;
+        margin-bottom: 6px;
+      }
+
+      .credit-names {
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .credit-divider {
+        margin-top: 18px;
+      }
+
+      .awaiting {
+        margin-top: 24px;
+      }
     }
 
     @media (max-width: 360px) {
@@ -1215,7 +1319,7 @@
     .hero h1 { font-size: min(13vw, 6.2svh); }
     .hero h1 span { font-size: .62em; margin: 4px 0; }
     .hero .ornament { margin: 10px auto; }
-    .hero .invitation-line { margin-top: 12px; font-size: min(3.9vw, 1.95svh); }
+    .hero .invitation-line { margin-top: 8px; font-size: min(3.9vw, 1.95svh); }
     .hero .scroll-cue { margin-top: 16px; }
 
     .event {
@@ -1343,7 +1447,7 @@
 
         <p class="eyebrow">Together with our families</p>
 
-        <h1>
+        <h1 style="margin-top: 8px;">
           Anshul
           <span>&amp;</span>
           Neha
@@ -1352,9 +1456,13 @@
         <div class="ornament">✧ ❀ ✧</div>
 
         <p class="invitation-line">
-          Two hearts, two families, and one beautiful beginning.
-          With the blessings of our elders, we invite you to join
-          us as we begin our forever together.
+          Two hearts, brought together by destiny, are ready to begin their forever.
+        </p>
+        <p class="invitation-line">
+          Join us in celebrating their union and bless them with your love.
+        </p>
+        <p class="invitation-line">
+          30th &amp; 31st JANUARY 2027
         </p>
 
         <p class="scroll-cue">
@@ -1370,9 +1478,9 @@
     <section class="page family" id="families">
       <div class="page-content reveal">
 
-        <p class="eyebrow">With the blessings of our families</p>
+        <p class="eyebrow">With the blessings of Almighty and our Families</p>
 
-        <h2 class="family-heading">Two Families, One Celebration</h2>
+        <h2 class="family-heading">Two souls, One sacred journey</h2>
 
         <div class="gold-line"></div>
 
@@ -1383,7 +1491,7 @@
             <div class="family-relation">
               <span class="relation-label">Grandson of</span>
               <p class="relation-names">
-                <strong>Smt. Vimla Devi Matani</strong> &amp; <strong>Late Shri. Chandru Ji Matani</strong>
+                <strong>Smt. Vimla Devi Matani</strong> &amp; <strong>Late Shri Chandru Ji Matani</strong>
               </p>
             </div>
             <div class="family-divider"></div>
@@ -1402,14 +1510,14 @@
             <div class="family-relation">
               <span class="relation-label">Granddaughter of</span>
               <p class="relation-names">
-                <strong>Late Smt. Kaushalya Devi Balwani</strong> &amp; <strong>Shri. Sewakram Ji Balwani</strong>
+                <strong>Late Smt. Kaushalya Devi Balwani</strong> &amp; <strong>Shri Sewakram Ji Balwani</strong>
               </p>
             </div>
             <div class="family-divider"></div>
             <div class="family-relation">
               <span class="relation-label">Daughter of</span>
               <p class="relation-names">
-                <strong>Mrs. Veena Balwani</strong> &amp; <strong>Mr. Balwani</strong>
+                <strong>Mrs. Veena Balwani</strong> &amp; <strong>Mr. Jagdish Balwani</strong>
               </p>
             </div>
           </div>
@@ -1417,7 +1525,12 @@
         </div>
 
         <p class="family-blessing">
-          A new chapter, blessed by the love of two families.
+          Dear Family &amp; Friends,
+        </p>
+        <p class="family-blessing">
+          With hearts full of gratitude, we invite you to celebrate the wedding
+          of our beloved children. Your presence and blessings will make this
+          joyous occasion truly complete.
         </p>
 
       </div>
@@ -1425,7 +1538,7 @@
 
     <!-- PAGE 3: LOGO AND CELEBRATIONS -->
 
-    <section class="page celebrations" id="celebrations">
+    <!--<section class="page celebrations" id="celebrations">
       <div class="page-content reveal">
 
         <p class="eyebrow">The beginning of forever</p>
@@ -1445,7 +1558,7 @@
         </p>
 
       </div>
-    </section>
+    </section>-->
 
     <!-- PAGE 4: SANGEET -->
 
@@ -1502,8 +1615,9 @@
             Sunday,<br />
             31st January 2027
           </p>
-
-          <p class="event-time">1:00 PM onwards</p>
+          <p class="event-time">Sehra Bandhi - 10:00 AM</p>
+          <p class="event-time">Baarat - 11:00 AM</p>
+          <p class="event-time">Pheras &amp; Promises - 1:00 PM onwards</p>
 
           <p class="event-venue">
             <strong>Hotel Residency Park</strong>
@@ -1530,7 +1644,7 @@
 
           <p class="eyebrow">An evening of love &amp; togetherness</p>
 
-          <h2>Wedding Reception</h2>
+          <h2>Reception</h2>
 
           <div class="gold-line"></div>
 
@@ -1599,6 +1713,64 @@
         <p class="section-note">
           Your presence will make our special day even more beautiful.
         </p>
+
+      </div>
+    </section>
+
+    <!-- PAGE 8: FAMILY WELCOME & BLESSINGS -->
+
+    <section class="page welcome" id="blessings">
+      <div class="page-content reveal">
+
+        <div>
+          <p class="eyebrow">Honoured to welcome you</p>
+          <h2 class="welcome-family">Matani &amp; Advani Family</h2>
+        </div>
+
+        <div class="gold-line"></div>
+
+        <div>
+
+          <div class="credit-group" style="margin-top: 0;">
+            <span class="credit-label">Blessings from</span>
+            <p class="credit-names">
+              <strong>Smt. Vimla devi &amp; Late Shri Chandru Matani</strong>
+              <strong>Late Smt. Padma &amp; Late Shri Sundar Advani</strong>
+            </p>
+          </div>
+
+          <div class="credit-divider"></div>
+
+          <div class="credit-group">
+            <span class="credit-label">With best wishes</span>
+            <p class="credit-names">
+              <strong>Mrs. Sangeeta &amp; Mr. Rajesh Matani</strong>
+              <strong>Mrs. Sumita &amp; Late Mr. Rakesh Matani</strong>
+              <strong>Mrs. Vinita &amp; Mr. Deepak Matani</strong>
+			  <strong>Mrs. Priya &amp; Mr. Manoj Advani</strong>
+			  <strong>Mrs. Mahek &amp; Mr. Gaurav Rohira</strong>
+              <strong>Mrs. Jinkal &amp; Mr. Rohit Java</strong>
+              <strong>Mrs. Vineeta &amp; Mr. Jatish Advani</strong>
+              <strong>Mrs. Nikita &amp; Mr. Rakshit Advani</strong>
+            </p>
+          </div>
+
+          <div class="credit-divider"></div>
+
+          <div class="credit-group">
+            <span class="credit-label">With best compliments from</span>
+            <p class="credit-names">
+              <strong>Dr. Uttej, Prapti, Paawan</strong>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="awaiting">
+          <div class="ornament">✧ ❀ ✧</div>
+          <span class="credit-label">Joyously awaiting</span>
+          <p class="awaiting-name">Avyaan</p>
+        </div>
 
       </div>
     </section>
