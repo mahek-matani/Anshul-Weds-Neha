@@ -1285,6 +1285,21 @@
       50%      { box-shadow: inset 0 0 0 4px #fff8ed, 0 0 18px #d8a95a55; }
     }
 
+    /* Reception line placed on the floor below the sofa */
+    .event .floor-note {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: var(--floor-bottom, 12svh);
+      margin: 0;
+      padding: 0 20px;
+      text-align: center;
+      z-index: 3;
+      text-shadow: 0 0 12px #fff6e9, 0 0 26px #fff6e9d9, 0 0 2px #fff6e9;
+    }
+
+    .reception { --floor-bottom: 12svh; }
+
     /* Gentle life in the script lines and the "&" between the names */
     .event-footer {
       animation: floatSoft 5s ease-in-out infinite;
@@ -1556,7 +1571,7 @@
 
     .sangeet   { padding-top: 17svh; padding-bottom: 22svh; }
     .wedding   { padding-top: 15svh; padding-bottom: 28svh; }
-    .reception { padding-top: 17svh; padding-bottom: 33svh; }
+    .reception { padding-top: 17svh; padding-bottom: 38svh; }
 
     .event .page-content { width: min(100%, 360px); margin: 0; }
 
@@ -1879,13 +1894,14 @@
             Dhule, Maharashtra
           </p>
 
-          <p class="event-footer">
-            Celebrate our happily ever after!
-          </p>
-
         </div>
 
       </div>
+
+      <!-- Sits on the floor, below the sofa. Move it with --floor-bottom on .reception in the CSS. -->
+      <p class="event-footer floor-note reveal">
+        Celebrate our happily ever after!
+      </p>
     </section>
 
     <!-- PAGE 7: WEDDING COUNTDOWN -->
