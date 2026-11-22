@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Cinzel (headings) · Cormorant Garamond (body) · Great Vibes (script) · Jost (small labels) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Alex+Brush&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap"
         rel="stylesheet" />
 
   <style>
@@ -34,6 +34,8 @@
       --font-display: "Cinzel", serif;
       --font-serif: "Cormorant Garamond", Georgia, serif;
       --font-script: "Great Vibes", cursive;
+      --font-names: "Alex Brush", cursive;
+      --font-avyaan: "Alex Brush", cursive;
       --font-sans: "Jost", system-ui, sans-serif;
 
       --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
@@ -579,15 +581,18 @@
     }
 
     .hero h1 {
-      font-size: clamp(42px, 8vw, 82px);
-      line-height: 1.05;
-      letter-spacing: .06em;
+      font-family: var(--font-names);
+      font-weight: 700;
+      font-size: clamp(54px, 10.5vw, 100px);
+      line-height: 1.12;
+      letter-spacing: 0;
+      padding: .05em .12em;
     }
 
     .hero h1 span {
       display: block;
       margin: 0;
-      font-family: var(--font-script);
+      font-family: var(--font-names);
       font-size: .72em;
       letter-spacing: 0;
       background: none;
@@ -677,9 +682,13 @@
     }
 
     .family-person h2 {
-      font-size: clamp(30px, 4.8vw, 46px);
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-family: var(--font-names);
+      font-size: clamp(44px, 6.4vw, 62px);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.2;
+      padding: 0 .1em;
+      margin-bottom: 8px;
     }
 
     .family-relation {
@@ -989,7 +998,7 @@
     }
 
     .awaiting-name {
-      font-family: var(--font-script);
+      font-family: var(--font-avyaan);
       font-size: clamp(54px, 11vw, 84px);
       line-height: 1.1;
       margin-top: 2px;
@@ -1035,19 +1044,6 @@
     .reveal.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: .56s; }
     .reveal.visible > *:nth-child(7) { opacity: 1; transform: translateY(0); transition-delay: .66s; }
     .reveal.visible > *:nth-child(8) { opacity: 1; transform: translateY(0); transition-delay: .76s; }
-
-    /* Names glide open on the first page */
-    .hero .reveal h1 {
-      letter-spacing: .22em;
-      transition:
-        opacity .85s var(--ease-luxury),
-        transform .85s var(--ease-luxury),
-        letter-spacing 2.4s var(--ease-luxury);
-    }
-
-    .hero .reveal.visible h1 {
-      letter-spacing: .06em;
-    }
 
     /* ==========================
        KEYFRAMES
@@ -1120,6 +1116,196 @@
       to { opacity: 1; }
     }
 
+    /* ==========================
+       LIVE EFFECTS
+    ========================== */
+
+    /* Falling flowers and petals (created by JS after the envelope opens) */
+    #petals {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: 0;
+      left: var(--x);
+      width: var(--size);
+      height: var(--size);
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: petalFall var(--dur) linear var(--delay) infinite;
+    }
+
+    .petal svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 1px 2px #8f4f4a30);
+      animation: petalSway var(--spin) ease-in-out var(--delay) infinite;
+    }
+
+    @keyframes petalFall {
+      0%   { transform: translate3d(0, -8vh, 0); opacity: 0; }
+      8%   { opacity: var(--op); }
+      90%  { opacity: var(--op); }
+      100% { transform: translate3d(var(--drift), 108vh, 0); opacity: 0; }
+    }
+
+    @keyframes petalSway {
+      0%   { transform: translateX(0) rotate(0deg) rotateY(0deg); }
+      50%  { transform: translateX(var(--sway)) rotate(180deg) rotateY(160deg); }
+      100% { transform: translateX(0) rotate(360deg) rotateY(0deg); }
+    }
+
+    /* Soft golden glow breathing behind Ganeshji */
+    .ganesh-glow {
+      position: absolute;
+      z-index: 0;
+      left: 50%;
+      top: calc(max(100svh, 177.8vw) * .1);
+      width: calc(max(100svh, 177.8vw) * .3);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, #ffd98a77 0%, #ffd98a26 42%, transparent 68%);
+      pointer-events: none;
+      animation: glowPulse 4.5s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: .55; transform: translate(-50%, -50%) scale(.94); }
+      50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    /* Twinkling gold sparkles on page 1 */
+    .sparkles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .sparkles i {
+      position: absolute;
+      left: var(--l);
+      top: var(--t);
+      font-style: normal;
+      font-size: var(--s, 14px);
+      color: #d8a95a;
+      opacity: 0;
+      animation: twinkle var(--d, 3s) ease-in-out var(--dl, 0s) infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(.3) rotate(0deg); }
+      50%      { opacity: 1; transform: scale(1) rotate(45deg); }
+    }
+
+    /* Golden dust drifting upward on the cream pages */
+    .dust {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .dust i {
+      position: absolute;
+      bottom: -12px;
+      left: var(--l);
+      width: var(--s);
+      height: var(--s);
+      border-radius: 50%;
+      background: radial-gradient(circle, #f3d58f 0%, #d9a94f00 72%);
+      opacity: 0;
+      animation: dustRise var(--d) linear var(--dl) infinite;
+    }
+
+    @keyframes dustRise {
+      0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+      15%  { opacity: .9; }
+      85%  { opacity: .6; }
+      100% { transform: translate3d(var(--dx), -105svh, 0); opacity: 0; }
+    }
+
+    /* Tap / click sparkle burst */
+    .burst {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 95;
+      pointer-events: none;
+      font-size: var(--s);
+      line-height: 1;
+      animation: burstOut .9s ease-out forwards;
+    }
+
+    @keyframes burstOut {
+      0%   { transform: translate(var(--px), var(--py)) scale(.4); opacity: 1; }
+      100% { transform: translate(calc(var(--px) + var(--dx)), calc(var(--py) + var(--dy))) scale(1) rotate(140deg); opacity: 0; }
+    }
+
+    /* Scroll progress line */
+    #scrollProgress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      z-index: 120;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, #c28a3e, #f0d48a, #c28a3e);
+      pointer-events: none;
+    }
+
+    /* Countdown: seconds pop on every tick, boxes softly glow */
+    .timer-number {
+      transition: transform .3s var(--ease-luxury);
+    }
+
+    .timer-number.tick {
+      transform: scale(1.12);
+    }
+
+    .timer-box {
+      animation: boxGlow 3.6s ease-in-out infinite;
+    }
+
+    .timer-box:nth-child(2) { animation-delay: .4s; }
+    .timer-box:nth-child(3) { animation-delay: .8s; }
+    .timer-box:nth-child(4) { animation-delay: 1.2s; }
+
+    @keyframes boxGlow {
+      0%, 100% { box-shadow: inset 0 0 0 4px #fff8ed, 0 0 0 #d8a95a00; }
+      50%      { box-shadow: inset 0 0 0 4px #fff8ed, 0 0 18px #d8a95a55; }
+    }
+
+    /* Gentle life in the script lines and the "&" between the names */
+    .event-footer {
+      animation: floatSoft 5s ease-in-out infinite;
+    }
+
+    .family-and {
+      animation: heartbeat 2.6s ease-in-out infinite;
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      18%      { transform: scale(1.18); }
+      32%      { transform: scale(1); }
+      46%      { transform: scale(1.1); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: .01ms !important;
@@ -1179,8 +1365,8 @@
       }
 
       .family-person h2 {
-        font-size: 28px;
-        margin-bottom: 6px;
+        font-size: 42px;
+        margin-bottom: 4px;
       }
 
       .family-relation {
@@ -1338,7 +1524,7 @@
 
     .hero .ganesh-mantra { font-size: min(3.1vw, 1.55svh); letter-spacing: .16em; margin-bottom: 1.2svh; }
     .hero .eyebrow { font-size: min(2.6vw, 1.25svh); letter-spacing: .26em; }
-    .hero h1 { font-size: min(12vw, 5.6svh); line-height: 1.02; margin-top: 1svh; }
+    .hero h1 { font-size: min(15vw, 7svh); line-height: 1.1; margin-top: 1svh; }
     .hero h1 span { font-size: .6em; margin: 0; }
     .hero .ornament { margin: 1.2svh auto; font-size: 15px; }
     .hero .invitation-line { max-width: 100%; margin-top: 1svh; font-size: min(4.5vw, 2.2svh); }
@@ -1399,7 +1585,7 @@
       }
 
       .hero .ganesh-mantra { font-size: min(11px, 1.5svh); }
-      .hero h1 { font-size: min(9vw, 5.6svh); }
+      .hero h1 { font-size: min(10vw, 7svh); }
       .hero .invitation-line { font-size: min(1.9vw, 2.1svh); }
 
       .event { padding-left: 0; padding-right: 0; }
@@ -1409,6 +1595,9 @@
 </head>
 
 <body class="locked">
+
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <div id="petals" aria-hidden="true"></div>
 
   <!-- ==========================
        ENVELOPE OPENING SCREEN
@@ -1478,6 +1667,21 @@
     <!-- PAGE 1: GANESHJI WELCOME -->
 
     <section class="page hero" id="home">
+
+      <div class="ganesh-glow" aria-hidden="true"></div>
+
+      <div class="sparkles" aria-hidden="true">
+        <i style="--l:22%; --t:6%;  --s:14px; --d:3.2s; --dl:0s">✦</i>
+        <i style="--l:74%; --t:9%;  --s:18px; --d:4s;   --dl:.8s">✧</i>
+        <i style="--l:40%; --t:3%;  --s:12px; --d:3.6s; --dl:1.6s">✦</i>
+        <i style="--l:60%; --t:15%; --s:13px; --d:3s;   --dl:2.2s">✧</i>
+        <i style="--l:30%; --t:17%; --s:16px; --d:4.4s; --dl:.4s">✦</i>
+        <i style="--l:84%; --t:24%; --s:12px; --d:3.8s; --dl:1.2s">✧</i>
+        <i style="--l:14%; --t:34%; --s:15px; --d:4.2s; --dl:2.6s">✦</i>
+        <i style="--l:90%; --t:46%; --s:13px; --d:3.4s; --dl:.2s">✧</i>
+        <i style="--l:8%;  --t:56%; --s:12px; --d:4.6s; --dl:1.9s">✦</i>
+        <i style="--l:52%; --t:72%; --s:11px; --d:3.9s; --dl:3s">✧</i>
+      </div>
       <div class="page-content reveal">
 
         <p class="ganesh-mantra">
@@ -1847,6 +2051,7 @@
         document.body.classList.remove("locked");
 
         musicToggle.classList.add("visible");
+        startPetals();
 
         document.querySelectorAll(".reveal").forEach((element) => {
           const rect = element.getBoundingClientRect();
@@ -1892,6 +2097,122 @@
     /* ==========================
        SCROLL REVEAL ANIMATIONS
     ========================== */
+
+    /* ==========================
+       LIVE EFFECTS
+    ========================== */
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rand = (min, max) => min + Math.random() * (max - min);
+
+    /* --- Falling flowers and petals --- */
+
+    const petalColors = ["#f4b9b2", "#f7cfc8", "#ee9f9b", "#fbe0d6", "#f2c27a", "#f8d6d0"];
+
+    function flowerSVG(color) {
+      const petals = [0, 72, 144, 216, 288]
+        .map((a) => `<ellipse cx="20" cy="10" rx="6.5" ry="9.5" transform="rotate(${a} 20 20)"/>`)
+        .join("");
+      return `<svg viewBox="0 0 40 40"><g fill="${color}">${petals}</g><circle cx="20" cy="20" r="3.6" fill="#e9c46f"/></svg>`;
+    }
+
+    function singlePetalSVG(color) {
+      return `<svg viewBox="0 0 24 40"><path d="M12 1 C22 10 22 28 12 39 C2 28 2 10 12 1Z" fill="${color}"/><path d="M12 6 C12 18 12 26 12 34" stroke="#ffffff" stroke-opacity=".45" fill="none" stroke-width="1"/></svg>`;
+    }
+
+    function startPetals() {
+      if (reduceMotion) return;
+
+      const layer = document.getElementById("petals");
+      const count = window.innerWidth < 700 ? 14 : 26;
+
+      for (let i = 0; i < count; i++) {
+        const petal = document.createElement("div");
+        const duration = rand(11, 20);
+        const color = petalColors[Math.floor(Math.random() * petalColors.length)];
+        const isFlower = Math.random() < 0.55;
+        const size = isFlower ? rand(16, 28) : rand(10, 16);
+
+        petal.className = "petal";
+        petal.style.setProperty("--x", rand(0, 98) + "%");
+        petal.style.setProperty("--size", size + "px");
+        petal.style.setProperty("--dur", duration + "s");
+        petal.style.setProperty("--delay", rand(-duration * 0.5, 3) + "s");
+        petal.style.setProperty("--spin", rand(5, 9) + "s");
+        petal.style.setProperty("--sway", rand(-40, 40) + "px");
+        petal.style.setProperty("--drift", rand(-60, 60) + "px");
+        petal.style.setProperty("--op", rand(0.55, 0.95).toFixed(2));
+        petal.innerHTML = isFlower ? flowerSVG(color) : singlePetalSVG(color);
+
+        layer.appendChild(petal);
+      }
+    }
+
+    /* --- Golden dust floating up on the cream pages --- */
+
+    if (!reduceMotion) {
+      document.querySelectorAll(".page:not(.hero):not(.event)").forEach((page) => {
+        const dust = document.createElement("div");
+        dust.className = "dust";
+        dust.setAttribute("aria-hidden", "true");
+
+        for (let i = 0; i < 14; i++) {
+          const speck = document.createElement("i");
+          speck.style.setProperty("--l", rand(2, 98) + "%");
+          speck.style.setProperty("--s", rand(3, 8) + "px");
+          speck.style.setProperty("--d", rand(9, 18) + "s");
+          speck.style.setProperty("--dl", rand(-12, 6) + "s");
+          speck.style.setProperty("--dx", rand(-40, 40) + "px");
+          dust.appendChild(speck);
+        }
+
+        page.appendChild(dust);
+      });
+    }
+
+    /* --- Sparkle burst on tap / click --- */
+
+    function sparkleBurst(x, y) {
+      const glyphs = ["✦", "❀", "✧", "✿"];
+      const colors = ["#d8a95a", "#e7b4ae", "#bd7775", "#f0d48a"];
+
+      for (let i = 0; i < 7; i++) {
+        const spark = document.createElement("span");
+        const angle = (Math.PI * 2 * i) / 7 + rand(-0.3, 0.3);
+        const distance = rand(36, 78);
+
+        spark.className = "burst";
+        spark.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+        spark.style.color = colors[Math.floor(Math.random() * colors.length)];
+        spark.style.setProperty("--s", rand(12, 20) + "px");
+        spark.style.setProperty("--px", x + "px");
+        spark.style.setProperty("--py", y + "px");
+        spark.style.setProperty("--dx", Math.cos(angle) * distance + "px");
+        spark.style.setProperty("--dy", Math.sin(angle) * distance + "px");
+        spark.addEventListener("animationend", () => spark.remove());
+
+        document.body.appendChild(spark);
+      }
+    }
+
+    document.addEventListener("pointerdown", (event) => {
+      if (reduceMotion || !hasOpened) return;
+      sparkleBurst(event.clientX, event.clientY);
+    }, { passive: true });
+
+    /* --- Scroll progress line --- */
+
+    const progressBar = document.getElementById("scrollProgress");
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      progressBar.style.transform = `scaleX(${progress})`;
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
 
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -1954,7 +2275,13 @@
       daysElement.textContent = String(days).padStart(3, "0");
       hoursElement.textContent = String(hours).padStart(2, "0");
       minutesElement.textContent = String(minutes).padStart(2, "0");
-      secondsElement.textContent = String(seconds).padStart(2, "0");
+      const newSeconds = String(seconds).padStart(2, "0");
+
+      if (secondsElement.textContent !== newSeconds) {
+        secondsElement.textContent = newSeconds;
+        secondsElement.classList.add("tick");
+        window.setTimeout(() => secondsElement.classList.remove("tick"), 220);
+      }
     }
 
     updateCountdown();
