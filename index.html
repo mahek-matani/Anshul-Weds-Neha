@@ -1606,6 +1606,60 @@
       .event { padding-left: 0; padding-right: 0; }
       .event .page-content { width: calc(var(--iw) * .56); }
     }
+
+    /* ==========================
+       SWINGING ARTWORK OVERLAYS
+    ========================== */
+
+    .art-stage {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero .art-stage    { --art: url("./ganeshji.png"); }
+    .sangeet .art-stage { --art: url("./sangeet.png"); }
+    .wedding .art-stage { --art: url("./wedding.png"); }
+
+    /* Covers the static original using nearby clean background texture */
+    .sway-patch {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      clip-path: var(--clip);
+      filter: blur(2px);
+    }
+
+    .sway-patch::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--art);
+      background-size: 100% 100%;
+      transform: translate(var(--sx, 0%), var(--sy, 0%));
+    }
+
+    /* The swinging cutout */
+    .sway-piece {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image: var(--art);
+      background-size: 100% 100%;
+      clip-path: var(--clip);
+      transform-origin: var(--pivot);
+      will-change: transform;
+      animation: gentleSwing var(--dur, 4.8s) ease-in-out var(--delay, 0s) infinite;
+    }
+
+    @keyframes gentleSwing {
+      0%, 100% { transform: rotate(calc(var(--angle, 2.8deg) * -1)); }
+      50%      { transform: rotate(var(--angle, 2.8deg)); }
+    }
   </style>
 </head>
 
@@ -1682,6 +1736,19 @@
     <!-- PAGE 1: GANESHJI WELCOME -->
 
     <section class="page hero" id="home">
+
+      <!-- Swinging brass bells (Ganeshji page) -->
+      <div class="art-stage" aria-hidden="true">
+        <!-- Background patches -->
+        <div class="sway-patch" style="--sx:-16%; --sy:-6%;  --clip:polygon(13.0% 11.8%, 15.2% 11.8%, 15.2% 24.0%, 18.4% 27.5%, 18.4% 31.4%, 9.8% 31.4%, 9.8% 27.5%, 13.0% 24.0%);"></div>
+        <div class="sway-patch" style="--sx:-15%; --sy:-10%; --clip:polygon(17.6% 10.2%, 19.8% 10.2%, 19.8% 16.0%, 22.5% 19.2%, 22.5% 22.6%, 15.0% 22.6%, 15.0% 19.2%, 17.6% 16.0%);"></div>
+        <div class="sway-patch" style="--sx:15%;  --sy:-10%; --clip:polygon(89.8% 6.5%,  92.2% 6.5%,  92.2% 11.5%, 94.5% 14.5%, 94.5% 17.2%, 87.5% 17.2%, 87.5% 14.5%, 89.8% 11.5%);"></div>
+
+        <!-- Swinging bells -->
+        <div class="sway-piece" style="--pivot:14.1% 11.8%; --angle:2.6deg; --dur:4.6s; --delay:-0.8s; --clip:polygon(13.2% 11.8%, 15.0% 11.8%, 15.0% 24.0%, 18.2% 27.5%, 18.2% 31.2%, 10.0% 31.2%, 10.0% 27.5%, 13.2% 24.0%);"></div>
+        <div class="sway-piece" style="--pivot:18.7% 10.2%; --angle:3.1deg; --dur:3.9s; --delay:-2.1s; --clip:polygon(17.8% 10.2%, 19.6% 10.2%, 19.6% 16.0%, 22.3% 19.2%, 22.3% 22.4%, 15.2% 22.4%, 15.2% 19.2%, 17.8% 16.0%);"></div>
+        <div class="sway-piece" style="--pivot:91.0% 6.5%;  --angle:2.8deg; --dur:4.3s; --delay:-1.4s; --clip:polygon(90.0% 6.5%,  92.0% 6.5%,  92.0% 11.5%, 94.3% 14.5%, 94.3% 17.0%, 87.7% 17.0%, 87.7% 14.5%, 90.0% 11.5%);"></div>
+      </div>
 
       <div class="ganesh-glow" aria-hidden="true"></div>
 
@@ -1797,6 +1864,22 @@
     <!-- PAGE 4: SANGEET -->
 
     <section class="page event sangeet" id="sangeet">
+
+      <!-- Swinging lanterns (Sangeet page) -->
+      <div class="art-stage" aria-hidden="true">
+        <!-- Background patches -->
+        <div class="sway-patch" style="--sx:-22%; --sy:-6%;  --clip:polygon(9.2% 11.2%,  11.4% 11.2%, 11.6% 21.2%, 15.2% 24.5%, 15.2% 31.0%, 10.3% 33.0%, 5.3% 31.0%,  5.3% 24.5%,  9.0% 21.2%);"></div>
+        <div class="sway-patch" style="--sx:-18%; --sy:-10%; --clip:polygon(15.7% 8.2%,  17.9% 8.2%,  18.1% 13.5%, 20.7% 15.8%, 20.7% 21.0%, 16.8% 22.6%, 12.8% 21.0%, 12.8% 15.8%, 15.5% 13.5%);"></div>
+        <div class="sway-patch" style="--sx:20%;  --sy:-6%;  --clip:polygon(88.1% 16.5%, 90.3% 16.5%, 90.5% 20.0%, 92.6% 22.0%, 92.6% 26.7%, 89.2% 28.2%, 85.8% 26.7%, 85.8% 22.0%, 87.9% 20.0%);"></div>
+        <div class="sway-patch" style="--sx:22%;  --sy:-4%;  --clip:polygon(93.5% 21.5%, 95.7% 21.5%, 95.9% 27.0%, 98.6% 29.2%, 98.6% 34.2%, 94.6% 36.0%, 90.8% 34.2%, 90.8% 29.2%, 93.3% 27.0%);"></div>
+
+        <!-- Swinging lanterns -->
+        <div class="sway-piece" style="--pivot:10.3% 11.2%; --angle:2.5deg; --dur:5.0s; --delay:-0.5s; --clip:polygon(9.4% 11.2%,  11.2% 11.2%, 11.4% 21.2%, 15.0% 24.5%, 15.0% 30.8%, 10.3% 32.8%, 5.5% 30.8%,  5.5% 24.5%,  9.2% 21.2%);"></div>
+        <div class="sway-piece" style="--pivot:16.8% 8.2%;  --angle:3.0deg; --dur:4.2s; --delay:-2.3s; --clip:polygon(15.9% 8.2%,  17.7% 8.2%,  17.9% 13.5%, 20.5% 15.8%, 20.5% 20.8%, 16.8% 22.4%, 13.0% 20.8%, 13.0% 15.8%, 15.7% 13.5%);"></div>
+        <div class="sway-piece" style="--pivot:89.2% 16.5%; --angle:2.8deg; --dur:4.6s; --delay:-1.2s; --clip:polygon(88.3% 16.5%, 90.1% 16.5%, 90.3% 20.0%, 92.4% 22.0%, 92.4% 26.5%, 89.2% 28.0%, 86.0% 26.5%, 86.0% 22.0%, 88.1% 20.0%);"></div>
+        <div class="sway-piece" style="--pivot:94.6% 21.5%; --angle:2.4deg; --dur:5.3s; --delay:-3.1s; --clip:polygon(93.7% 21.5%, 95.5% 21.5%, 95.7% 27.0%, 98.4% 29.2%, 98.4% 34.0%, 94.6% 35.8%, 91.0% 34.0%, 91.0% 29.2%, 93.5% 27.0%);"></div>
+      </div>
+
       <div class="page-content reveal">
 
         <div class="event-card">
@@ -1833,6 +1916,28 @@
     <!-- PAGE 5: WEDDING CEREMONY -->
 
     <section class="page event wedding" id="wedding">
+
+      <!-- Swinging floral hangings (Wedding page) -->
+      <div class="art-stage" aria-hidden="true">
+        <!-- Background patches -->
+        <div class="sway-patch" style="--sx:-18%; --sy:-16%; --clip:inset(8.2% 72.8% 77.0% 22.0%);"></div>
+        <div class="sway-patch" style="--sx:-10%; --sy:-18%; --clip:inset(7.2% 62.6% 84.8% 32.6%);"></div>
+        <div class="sway-patch" style="--sx:-8%;  --sy:-18%; --clip:inset(7.5% 58.8% 79.8% 36.0%);"></div>
+        <div class="sway-patch" style="--sx:0%;   --sy:-18%; --clip:inset(5.5% 47.2% 87.2% 47.4%);"></div>
+        <div class="sway-patch" style="--sx:8%;   --sy:-18%; --clip:inset(7.5% 35.6% 79.6% 59.3%);"></div>
+        <div class="sway-patch" style="--sx:12%;  --sy:-18%; --clip:inset(7.5% 31.8% 82.3% 63.6%);"></div>
+        <div class="sway-patch" style="--sx:18%;  --sy:-16%; --clip:inset(8.2% 22.6% 77.0% 72.0%);"></div>
+
+        <!-- Swinging garlands -->
+        <div class="sway-piece" style="--pivot:24.6% 8.2%; --angle:3.0deg; --dur:4.8s; --delay:-0.4s; --clip:inset(8.2% 73.0% 77.2% 22.2%);"></div>
+        <div class="sway-piece" style="--pivot:35.0% 7.2%; --angle:3.6deg; --dur:3.8s; --delay:-1.9s; --clip:inset(7.2% 62.8% 85.0% 32.8%);"></div>
+        <div class="sway-piece" style="--pivot:38.6% 7.5%; --angle:3.2deg; --dur:4.4s; --delay:-0.9s; --clip:inset(7.5% 59.0% 80.0% 36.2%);"></div>
+        <div class="sway-piece" style="--pivot:50.1% 5.5%; --angle:3.8deg; --dur:3.6s; --delay:-2.5s; --clip:inset(5.5% 47.4% 87.4% 47.6%);"></div>
+        <div class="sway-piece" style="--pivot:61.8% 7.5%; --angle:3.2deg; --dur:4.5s; --delay:-1.3s; --clip:inset(7.5% 35.8% 79.8% 59.5%);"></div>
+        <div class="sway-piece" style="--pivot:65.9% 7.5%; --angle:3.5deg; --dur:4.0s; --delay:-2.9s; --clip:inset(7.5% 32.0% 82.5% 63.8%);"></div>
+        <div class="sway-piece" style="--pivot:74.7% 8.2%; --angle:3.0deg; --dur:4.9s; --delay:-1.7s; --clip:inset(8.2% 22.8% 77.2% 72.2%);"></div>
+      </div>
+
       <div class="page-content reveal">
 
         <div class="event-card">
@@ -2111,10 +2216,6 @@
     });
 
     /* ==========================
-       SCROLL REVEAL ANIMATIONS
-    ========================== */
-
-    /* ==========================
        LIVE EFFECTS
     ========================== */
 
@@ -2302,6 +2403,40 @@
 
     updateCountdown();
     window.setInterval(updateCountdown, 1000);
+
+    /* ==========================
+       ALIGN SWINGING ARTWORK LAYERS
+    ========================== */
+
+    function syncArtStages() {
+      const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+      const ratio = 0.5625; // 9:16 portrait artwork
+
+      document.querySelectorAll(".art-stage").forEach((stage) => {
+        const page = stage.parentElement;
+        const pw = page.clientWidth;
+        const ph = page.clientHeight;
+        let w, h;
+
+        if (isLandscape) {
+          h = ph;
+          w = ph * ratio;
+        } else if (pw / ph > ratio) {
+          w = pw;
+          h = pw / ratio;
+        } else {
+          h = ph;
+          w = ph * ratio;
+        }
+
+        stage.style.width = w + "px";
+        stage.style.height = h + "px";
+      });
+    }
+
+    syncArtStages();
+    window.addEventListener("resize", syncArtStages);
+    window.addEventListener("orientationchange", syncArtStages);
   </script>
 
 </body>
